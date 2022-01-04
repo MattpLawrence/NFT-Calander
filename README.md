@@ -1,2 +1,2 @@
 # Project-1
-App that recognizes a song and directs you to YouTube
+Website to track and display upcomming NFT drops by date.

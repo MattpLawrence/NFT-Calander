@@ -1,3 +1,7 @@
+var searchBtnEl = $('#searchBtn');
+var searchBarEL = $('#searchBar');
+
+
 $(document).ready(function () {
 
   var key = 'AIzaSyC7u-65-16e0JB7PPDDpUM8j1wFyDprLzo';
@@ -17,7 +21,6 @@ $(document).ready(function () {
   function loadVids() {
       $.getJSON(URL, options, function (data) {
           var id = data.items[0].snippet.thumbnails.high.url;
-          console.log(data.items[0].snippet.thumbnails.high.url);
           console.log(id);
           console.log(data.items[0].snippet);
           mainVid(id);

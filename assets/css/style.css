@@ -37,8 +37,12 @@ section {
 	text-align: center;
 	width: 560px;
 	background-color: #fff;
+  
 }
-
+header,section,img{
+  margin-left:0;
+  padding-left: 0;
+}
 section {
 	top: 50px;
 }

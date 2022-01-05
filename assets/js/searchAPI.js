@@ -9,7 +9,8 @@ function searchVid(searchVal){
     part: 'snippet',
     key: key,
     maxResults: 10,
-    q: searchVal
+    q: searchVal,
+    // videoEmbeddable: true
   }
 
   console.log(searchVal + '  other page')
@@ -54,6 +55,7 @@ function searchResultsLoop(data) {
   function mainImgSearch(id) {
     $('#preview').html($('<img>',{id: 'image', src: id, width:'560', height: '315'}  
     ));
+
   }
 }
 

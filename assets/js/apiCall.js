@@ -1,11 +1,17 @@
+var searchBtnEl = $('#searchBtn');
+var searchBarEL = $('#searchBar');
+var previewEl = $('preview');
+// APi key for all googleAPi searches on this project
+var key = 'AIzaSyC7u-65-16e0JB7PPDDpUM8j1wFyDprLzo'; 
+
 $(document).ready(function () {
 
-  var key = 'AIzaSyC7u-65-16e0JB7PPDDpUM8j1wFyDprLzo';
+
   var playlistId = 'PLMKA5kzkfqk2GEImRCIqGqWmQvKYygUhG';
-  var URL = 'https://www.googleapis.com/youtube/v3/playlistItems';
+  var urlPlay = 'https://www.googleapis.com/youtube/v3/playlistItems';
 
 
-  var options = {
+  var optionsPlay = {
       part: 'snippet',
       key: key,
       maxResults: 20,
@@ -15,27 +21,15 @@ $(document).ready(function () {
   loadVids();
 
   function loadVids() {
-      $.getJSON(URL, options, function (data) {
+      $.getJSON(urlPlay, optionsPlay, function (data) {
           var id = data.items[0].snippet.thumbnails.high.url;
-          console.log(data.items[0].snippet.thumbnails.high.url);
-          console.log(id);
-          console.log(data.items[0].snippet);
-          mainVid(id);
+          mainImg(id);
           resultsLoop(data);
-          function mainVid(id) {
-            var thumbNail = data.items[0].snippet.thumbnails.high.url
-              $('#preview').prepend($('<img>',{id: 'image', src: thumbNail}  
-              ));
-              console.log(mainVid);
-          }
       });
   }
-  function mainVid(id) {
-    // var thumbNail = data.items[0].snippet.thumbnails.high.url
+  function mainImg(id) {
       $('#preview').html($('<img>',{id: 'image', src: id, width:'560', height: '315'}  
       ));
-      console.log(id);
-      console.log(mainVid);
   }
 
   
@@ -65,14 +59,20 @@ $(document).ready(function () {
       });
   }
 
-  // CLICK EVENT
+  // Click on list item
   $('main').on('click', 'article', function () {
       var id = $(this).children('img').attr('src');
-      console.log(this)
-      // console.log((this).find("img"));
-      console.log(id);
-      mainVid(id);
+      mainImg(id);
+      var idThis = $(this);
+      console.log(idThis);
+      
   });
+  // Click on search bar button
+  $(searchBtnEl).on('click', function(){
+    var searchVal = searchBar.value;
+    searchVid(searchVal);
+
+  })
 
 
 });

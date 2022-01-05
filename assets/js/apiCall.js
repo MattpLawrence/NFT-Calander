@@ -32,7 +32,11 @@ $(document).ready(function () {
   function mainImg(id) {
       $('#preview').html($('<img>',{id: 'image', src: id, width:'560', height: '315'}  
       ));
+
   }
+  // function mainImg(id) {
+  //     $('#preview').html('<iframe width="560" height="315" src="https://www.youtube.com/embed/${id}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>')
+  // }
 
   
 

@@ -16,17 +16,26 @@ $(document).ready(function () {
 
   function loadVids() {
       $.getJSON(URL, options, function (data) {
-          var id = data.items[0].snippet.resourceId.videoId;
-          console.log(data.items[0].snippet.thumbnails.high.url)
+          var id = data.items[0].snippet.thumbnails.high.url;
+          console.log(data.items[0].snippet.thumbnails.high.url);
+          console.log(id);
+          console.log(data.items[0].snippet);
           mainVid(id);
           resultsLoop(data);
           function mainVid(id) {
             var thumbNail = data.items[0].snippet.thumbnails.high.url
-              $('#video').prepend($('<img>',{id: 'image', src: thumbNail}  
+              $('#preview').prepend($('<img>',{id: 'image', src: thumbNail}  
               ));
               console.log(mainVid);
           }
       });
+  }
+  function mainVid(id) {
+    // var thumbNail = data.items[0].snippet.thumbnails.high.url
+      $('#preview').html($('<img>',{id: 'image', src: id, width:'560', height: '315'}  
+      ));
+      console.log(id);
+      console.log(mainVid);
   }
 
   
@@ -58,7 +67,10 @@ $(document).ready(function () {
 
   // CLICK EVENT
   $('main').on('click', 'article', function () {
-      var id = $(this).attr('data-key');
+      var id = $(this).children('img').attr('src');
+      console.log(this)
+      // console.log((this).find("img"));
+      console.log(id);
       mainVid(id);
   });
 

@@ -22,17 +22,13 @@ $(document).ready(function () {
   function loadVids() {
       $.getJSON(urlPlay, optionsPlay, function (data) {
           var id = data.items[0].snippet.thumbnails.high.url;
-          console.log(id);
-          console.log(data.items[0].snippet);
-          mainVid(id);
+          mainImg(id);
           resultsLoop(data);
       });
   }
-  function mainVid(id) {
+  function mainImg(id) {
       $('#preview').html($('<img>',{id: 'image', src: id, width:'560', height: '315'}  
       ));
-      console.log(id);
-      console.log(mainVid);
   }
 
   
@@ -65,16 +61,16 @@ $(document).ready(function () {
   // Click on list item
   $('main').on('click', 'article', function () {
       var id = $(this).children('img').attr('src');
-      console.log(this)
-      // console.log((this).find("img"));
-      console.log(id);
-      mainVid(id);
+      mainImg(id);
+      var idThis = $(this);
+      console.log(idThis);
+      
   });
   // Click on search bar button
   $(searchBtnEl).on('click', function(){
     var searchVal = searchBar.value;
-    console.log(searchVal);
     searchVid(searchVal);
+
   })
 
 

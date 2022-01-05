@@ -2,21 +2,24 @@
 
 var urlSearch = 'https://www.googleapis.com/youtube/v3/search';
 
-var optionsSearch = {
-  part: 'snippet',
-  key: key,
-  maxResults: 20,
-  
-}
+
 
 function searchVid(searchVal){
+  var optionsSearch = {
+    part: 'snippet',
+    key: key,
+    maxResults: 20,
+    q: searchVal
+  }
+
   console.log(searchVal + '  other page')
-  $.getJSON(urlSearch, options, function (data) {
-    var id = data.items[0].snippet.thumbnails.high.url;
-    console.log(id);
+  $.getJSON(urlSearch, optionsSearch, function (data) {
+    
+    console.log(data);
     console.log(data.items[0].snippet);
-    mainVid(id);
-    resultsLoop(data);
+    console.log(data.items[0].snippet);
+    var id = data.items[0].id.videoId;
+    console.log(id);
   });
 
 }

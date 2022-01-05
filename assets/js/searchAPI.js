@@ -8,13 +8,15 @@ function searchVid(searchVal){
     key: key,
     maxResults: 10,
     q: searchVal,
+    type: 'video',
+    videoEmbeddable: 'true'
   }
 
   console.log(searchVal + '  other page')
   $.getJSON(urlSearch, optionsSearch, function (data) {
     
     console.log(data);
-    console.log(data.items[0].snippet);
+  
     console.log(data.items[0].snippet);
     var id = data.items[0].id.videoId;
     console.log(id);
@@ -52,11 +54,10 @@ function searchResultsLoop(data) {
   function mainImgSearch(id) {
     $('#preview').html($('<img>',{id: 'image', src: id, width:'560', height: '315'}  
     ));
-
   }
-}
 
-function mainImgSearch(id) {
-  $('#preview').html($('<img>',{id: 'image', src: id, width:'560', height: '315'}  
-  ));
-}
+    }
+
+
+
+

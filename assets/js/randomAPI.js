@@ -35,8 +35,6 @@ function randomVid (){
 var randomBtnEl = $('#randomBtn');
 
 $(randomBtnEl).on('click', function(){
-  console.log('hewwo?')
-  
   randomVid();
 
 })

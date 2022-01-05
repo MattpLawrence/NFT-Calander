@@ -34,9 +34,7 @@ $(document).ready(function () {
       ));
 
   }
-  // function mainImg(id) {
-  //     $('#preview').html('<iframe width="560" height="315" src="https://www.youtube.com/embed/${id}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>')
-  // }
+ 
 
   
 
@@ -65,14 +63,29 @@ $(document).ready(function () {
       });
   }
 
+  // on dblClick follow to youtube page
+  function followPath(path){
+    console.log('followed')
+    window.open('https://www.youtube.com/watch?v='+ path , "_blank");
+  }
+
+
+
+
   // Click on list item
   $('main').on('click', 'article', function () {
       var id = $(this).children('img').attr('src');
       mainImg(id);
       var idThis = $(this);
-      console.log(idThis);
-      
+      console.log(idThis); 
   });
+
+  //double click
+  $('main').on('dblclick', 'article', function () {
+    var path = $(this).attr('data-key');
+    console.log(path);
+    followPath(path);
+});
   // Click on search bar button
   $(searchBtnEl).on('click', function(){
     console.log('hewwo?')

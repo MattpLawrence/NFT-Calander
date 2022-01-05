@@ -84,17 +84,19 @@ $(document).ready(function () {
   function loadVids() {
       $.getJSON(URL, options, function (data) {
           var id = data.items[0].snippet.resourceId.videoId;
+          console.log(data.items[0].snippet.thumbnails.high.url)
           mainVid(id);
           resultsLoop(data);
+          function mainVid(id) {
+            var thumbNail = data.items[0].snippet.thumbnails.high.url
+              $('#video').prepend($('<img>',{id: 'image', src: thumbNail}  
+              ));
+              console.log(mainVid);
+          }
       });
   }
 
-  function mainVid(id) {
-      $('#video').html(`
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/${id}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-      `);
-      console.log(mainVid);
-  }
+  
 
   
   function resultsLoop(data) {

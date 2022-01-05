@@ -1,5 +1,6 @@
 var searchBtnEl = $('#searchBtn');
 var searchBarEL = $('#searchBar');
+var previewEl = $('preview');
 // APi key for all googleAPi searches on this project
 var key = 'AIzaSyC7u-65-16e0JB7PPDDpUM8j1wFyDprLzo'; 
 

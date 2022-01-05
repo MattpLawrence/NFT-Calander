@@ -82,9 +82,14 @@ $(document).ready(function () {
 
   //double click
   $('main').on('dblclick', 'article', function () {
-    var path = $(this).attr('data-key');
+    //get id from splitting apart the thumbnail src URL
+    var path = $(this).children('img').attr('src');
     console.log(path);
-    followPath(path);
+    var splitPath = path.split('/');
+    console.log(splitPath);
+    var pathFinal = splitPath[4];
+    console.log(pathFinal);
+    followPath(pathFinal);
 });
   // Click on search bar button
   $(searchBtnEl).on('click', function(){

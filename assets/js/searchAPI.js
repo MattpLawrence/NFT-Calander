@@ -2,13 +2,13 @@
 
 var urlSearch = 'https://www.googleapis.com/youtube/v3/search';
 
-
+console.log('here');
 
 function searchVid(searchVal){
   var optionsSearch = {
     part: 'snippet',
     key: key,
-    maxResults: 20,
+    maxResults: 10,
     q: searchVal
   }
 

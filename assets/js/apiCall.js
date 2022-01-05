@@ -3,18 +3,20 @@ var searchBarEL = $('#searchBar');
 var previewEl = $('preview');
 // APi key for all googleAPi searches on this project
 var key = 'AIzaSyC7u-65-16e0JB7PPDDpUM8j1wFyDprLzo'; 
+var maxNumber = 10;
+
 
 $(document).ready(function () {
 
 
   var playlistId = 'PLMKA5kzkfqk2GEImRCIqGqWmQvKYygUhG';
   var urlPlay = 'https://www.googleapis.com/youtube/v3/playlistItems';
-
+  
 
   var optionsPlay = {
       part: 'snippet',
       key: key,
-      maxResults: 20,
+      maxResults: maxNumber,
       playlistId: playlistId
   }
 
@@ -69,6 +71,7 @@ $(document).ready(function () {
   });
   // Click on search bar button
   $(searchBtnEl).on('click', function(){
+    console.log('hewwo?')
     var searchVal = searchBar.value;
     searchVid(searchVal);
 

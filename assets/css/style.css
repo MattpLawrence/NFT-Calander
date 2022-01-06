@@ -52,6 +52,17 @@ header,section,img{
   height: 2.5rem;
 }
 
+.historyBtn{
+  display: block;
+  color: black;
+  margin: 2px auto;
+  width: 100%;
+}
+
+.historyBtn:hover{
+  background-color: rgb(155, 166, 226);
+}
+
 #randomDiv{
   display: inline;
   margin: 0 auto;

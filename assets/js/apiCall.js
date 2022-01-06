@@ -53,7 +53,7 @@ $(document).ready(function () {
       });
   }
 
-  //********************************************** */
+  //*******************************************history bar*** */
   var pastSearches =[];
 
   function saveSearchHistory(searchVal){
@@ -78,8 +78,8 @@ $(document).ready(function () {
       console.log(pastSearches);
       $.each(pastSearches,function(i,val){
         console.log( i + '  ' + val);
-        var subMenuLI = $(`<li>`).text(val);
-        // var subMenuLI = $(`<button>).text(val);
+        // var subMenuLI = $(`<li>`).text(val);
+        var subMenuLI = $(`<button>`).text(val).attr('class','historyBtn');
         subMenuEL.append(subMenuLI);
 
       })
@@ -94,9 +94,9 @@ $(document).ready(function () {
       drawPastSearches(search);
   });
   //on lost focus of search bar
-  $(searchBarEL).on("focusout", function(e) {
-    subMenuEL.empty();
-  });
+  // $(searchBarEL).on("focusout", function(e) {
+  //   subMenuEL.empty();
+  // });
   //********************************************** */
 
 

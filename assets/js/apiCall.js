@@ -61,7 +61,6 @@ $(document).ready(function () {
     if(localStorage['pastSearches']){
       pastSearches = JSON.parse(localStorage['pastSearches']);
     }
-    
     if(pastSearches.indexOf(searchVal) == -1) {
       pastSearches.unshift(searchVal);
       if(pastSearches.length > 5) { 
@@ -79,15 +78,13 @@ $(document).ready(function () {
       console.log(pastSearches);
       $.each(pastSearches,function(i,val){
         console.log( i + '  ' + val);
-        var subMenuLI = $(`<li>${val}<li>`);
+        var subMenuLI = $(`<li>`).text(val);
+        // var subMenuLI = $(`<button>).text(val);
         subMenuEL.append(subMenuLI);
 
       })
-      
     }
-    
   }
-
 
   //on search bar focus
   $(searchBarEL).on("focus", function(e) {
@@ -142,7 +139,3 @@ $(document).ready(function () {
 
 
 });
-
-// var subMenuLI = $('<li>')
-// // subMenuLI.text = 'val';
-// subMenuEL.append(subMenuLI)

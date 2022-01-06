@@ -11,18 +11,14 @@ function searchVid(searchVal){
     type: 'video',
     videoEmbeddable: 'true'
   }
-
-  console.log(searchVal + '  other page')
-  $.getJSON(urlSearch, optionsSearch, function (data) {
-    
-    console.log(data);
   
-    console.log(data.items[0].snippet);
-    var id = data.items[0].id.videoId;
-    console.log(id);
+  $.getJSON(urlSearch, optionsSearch, function (data) {
+    // console.log(data);
+    // console.log(data.items[0].snippet);
+    // var id = data.items[0].id.videoId;
+    // console.log(id);
     searchResultsLoop(data)
   });
-
 }
 
 function searchResultsLoop(data) {
@@ -55,8 +51,7 @@ function searchResultsLoop(data) {
     $('#preview').html($('<img>',{id: 'image', src: id, width:'560', height: '315'}  
     ));
   }
-
-    }
+}
 
 
 

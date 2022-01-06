@@ -19,8 +19,7 @@ function searchVid(searchVal){
     // console.log(id);
     searchResultsLoop(data)
   });
-
- mainImgSearch(searchVal);
+ mainImgSearch(searchVal); //*****************Comment in to display Embedded video */
 }
 
   function searchResultsLoop(data) {
@@ -46,33 +45,32 @@ function searchVid(searchVal){
       </article>
     `);
     });
-    try{
+
+    //****************comment back in to display thumbnail******** */
+
+    // try{
     // var id = data.items[0].snippet.thumbnails.high.url;
     // mainImgSearch(id);
-    }catch(err){
-      console.log('someerror');
-      if (err === TypeError){
-        randomVid();
-        console.log('retry');
-      }
-    }
+    // }catch(err){
+    //   console.log('someerror');
+    //   if (err === TypeError){
+    //     randomVid();
+    //     console.log('retry');
+    //   }
+    // }
     // function mainImgSearch(id) {
     //   $('#preview').html($('<img>',{id: 'image', src: id, width:'560', height: '315'}  
     //   ));
     // }
-    // function mainImgSearch(id) {
-    //   $('#preview').html(`
-    //   <iframe width="560" height="315" src="https://www.youtube.com/embed/${id}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    // `);
-    //   console.log(id);
-    // }
+    //********************************************************************** */
 
   }
 
+  //****************Comment in to display embedded video/ also call on line 22**************** */
   function mainImgSearch(id) {
     $('#preview').html(`
     <iframe width="560" height="315" src="https://www.youtube.com/embed/${id}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   `);
   console.log(id);
-
   }
+  //************************************************************************ */

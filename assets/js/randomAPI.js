@@ -1,5 +1,6 @@
 //handle random function
 function randomVid (){
+  spinnerEl.css("display", "inline-block") //start spinner
   fetch("https://kareoke.p.rapidapi.com/v1/song/random", {
     "method": "GET",
     "headers": {
@@ -11,7 +12,7 @@ function randomVid (){
     if (!response.ok) {
       throw response.json();
     }
-    console.log(response)
+    spinnerEl.css("display", "none") //stop spinner
     return response.json();
   })
   .then(function (data){
@@ -29,3 +30,5 @@ var randomBtnEl = $('#randomBtn');
 $(randomBtnEl).on('click', function(){
   randomVid();
 })
+
+var spinnerEl = $('#spinner');

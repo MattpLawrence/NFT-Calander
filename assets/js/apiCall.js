@@ -98,6 +98,8 @@ $(document).ready(function () {
     searchVid(searchVal);
 
   })
-
-
 });
+
+$(window).on('load', function () {
+  $('#loading').hide();
+}) 

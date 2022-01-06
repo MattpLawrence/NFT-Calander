@@ -16,7 +16,11 @@ $(document).ready(function () {
   var optionsPlay = {
       part: 'snippet',
       key: key,
+
+      maxResults: 10,
+
       maxResults: maxNumber,
+
       playlistId: playlistId
   }
 
@@ -38,7 +42,6 @@ $(document).ready(function () {
 
   
 
-  
   function resultsLoop(data) {
 
       $.each(data.items, function (i, item) {
@@ -79,6 +82,33 @@ $(document).ready(function () {
       var idThis = $(this);
       console.log(idThis); 
   });
+  
+  //Array - trying to see if this work for random link button
+var random = Array();
+
+random [0] = "https://www.youtube.com/watch?v="
+random [1] = "https://www.youtube.com/watch?v="
+random [2] = "https://www.youtube.com/watch?v="
+
+
+
+  function randomLink() {
+    window.location = random[Math.floor(Math.random()*random.length)];
+  }
+  // randomLink
+console.log(randomLink)
+
+
+
+  
+  var searchHistory
+  function searchHistory () {
+    var prevVideo = localStorage.getItem('player');
+
+    document.getElementById('player');
+
+  }
+  console.log(searchHistory)
 
   //double click
   $('main').on('dblclick', 'article', function () {

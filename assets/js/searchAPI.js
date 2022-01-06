@@ -21,8 +21,6 @@ function searchVid(searchVal){
   });
 }
 
-// try{
-
   function searchResultsLoop(data) {
     $('main').empty();
 
@@ -61,11 +59,5 @@ function searchVid(searchVal){
       ));
     }
   }
-// } catch(err){
-//   console.log('someerror');
-//   if (err === TypeError){
-//     randomVid();
-//     console.log('retry');
-//   }
-// }
+
 

@@ -2,7 +2,7 @@ var searchBtnEl = $('#searchBtn');
 var searchBarEL = $('#searchBar');
 var previewEL = $('#preview');
 var subMenuEL = $('#subMenu');
-
+var store = window.localStorage;
 // APi key for all googleAPi searches on this project
 var key = 'AIzaSyA2kJvnPrjD1ekofl7me4fCnWr9I324rGo'; 
 var maxNumber = 10;
@@ -75,12 +75,22 @@ $(document).ready(function () {
     var pathFinal = splitPath[4];
     console.log(pathFinal);
     followPath(pathFinal);
-});
+  });
   // Click on search bar button
   $(searchBtnEl).on('click', function(){
-    console.log('hewwo?')
     var searchVal = searchBar.value;
     searchVid(searchVal);
-
+    saveSearchHistory(searchVal);
   })
+
+  function saveSearchHistory(searchVal){
+    console.log(searchVal);
+    // function findNumber(){
+    //   if(store.getItem(num))
+    // }
+    store.setItem(1, searchVal);
+  }
+
 });
+
+

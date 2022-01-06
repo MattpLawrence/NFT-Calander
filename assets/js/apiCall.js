@@ -2,6 +2,7 @@ var searchBtnEl = $('#searchBtn');
 var searchBarEL = $('#searchBar');
 var previewEL = $('#preview');
 var subMenuEL = $('#subMenu');
+// var searchAreaEL = $('.form-outline');
 // var formOutlineEL = $('form-outline');
 var store = window.localStorage;
 // APi key for all googleAPi searches on this project
@@ -71,6 +72,7 @@ $(document).ready(function () {
     searchBar.value = ''; //clear search bar
   }
 
+
   function drawPastSearches() {
     pastSearches = JSON.parse(localStorage['pastSearches']); //retrieve from local storage
 
@@ -97,6 +99,16 @@ $(document).ready(function () {
   // $(searchBarEL).on("focusout", function(e) {
   //   subMenuEL.empty();
   // });
+
+  $(subMenuEL).on('click' , function(e){
+    var textValue = $(e);
+    console.log(e);
+    console.log(textValue);
+    console.log('clicked');
+    console.log(this.innerText);
+  })
+  
+  
   //********************************************** */
 
 

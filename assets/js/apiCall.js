@@ -4,7 +4,7 @@ var previewEL = $('#preview');
 var subMenuEL = $('#subMenu');
 var store = window.localStorage;
 // APi key for all googleAPi searches on this project
-var key = 'AIzaSyA2kJvnPrjD1ekofl7me4fCnWr9I324rGo'; 
+var key = 'AIzaSyCiyPkfNWAkg0-7BgKKX3bxxPzDH0Fop9w'; 
 var maxNumber = 10;
 
 $(document).ready(function () {
@@ -52,6 +52,71 @@ $(document).ready(function () {
       });
   }
 
+  // var num = 1;
+  // //save search history
+  // function saveSearchHistory(searchVal){
+  //   console.log(searchVal);
+  //   // function findNumber(){
+  //   //   if(store.getItem(num))
+  //   // }
+  //   if(num === 5){
+
+  //   }
+    
+    
+  //   console.log(num + ' first');
+  //   store.setItem(num, searchVal);
+  //   num ++ ;
+  //   console.log(num);
+  // }
+
+
+  //********************************************** */
+  var pastSearches =[];
+
+  function saveSearchHistory(searchVal){
+    console.log('save try');
+    if(localStorage['pastSearches']){
+      pastSearches = JSON.parse(localStorage['pastSearches']);
+    }
+    
+    if(pastSearches.indexOf(searchVal) == -1) {
+      pastSearches.unshift(searchVal);
+      if(pastSearches.length > 5) { 
+        pastSearches.pop();
+      }
+      localStorage["pastSearches"] = JSON.stringify(pastSearches);
+    }
+  }
+
+  function drawPastSearches() {
+    pastSearches = JSON.parse(localStorage['pastSearches']); //retrieve from local storage
+    
+    if(pastSearches.length) {
+      console.log(pastSearches);
+
+      $.each(pastSearches,function(i,val){
+        console.log( i + '  ' + val);
+      })
+        // pasSearches.forEach(element => {
+          
+        // });
+    }
+  }
+
+
+  //on search bar focus
+  $(searchBarEL).on("focus", function(e) {
+      e.preventDefault();
+      console.log('first focus');
+      var search = $(this).text();
+      drawPastSearches(search);
+  });
+
+
+  //********************************************** */
+
+
   // on dblClick follow to youtube page
   function followPath(path){
     console.log('followed')
@@ -83,13 +148,7 @@ $(document).ready(function () {
     saveSearchHistory(searchVal);
   })
 
-  function saveSearchHistory(searchVal){
-    console.log(searchVal);
-    // function findNumber(){
-    //   if(store.getItem(num))
-    // }
-    store.setItem(1, searchVal);
-  }
+
 
 });
 

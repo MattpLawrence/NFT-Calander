@@ -75,7 +75,7 @@ $(document).ready(function () {
     followPath(pathFinal);
 });
   // Click on search bar button
-  $(searchBtnEl).on('click', function(){
+  $(searchBtnEl).on('submit', function(){
     console.log('hewwo?')
     var searchVal = searchBar.value;
     searchVid(searchVal);

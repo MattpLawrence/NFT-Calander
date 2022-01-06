@@ -23,6 +23,7 @@ function randomVid (){
   })
   .catch(err => {
     console.error(err);
+    console.log('oops');
   }); 
 }
 var randomBtnEl = $('#randomBtn');

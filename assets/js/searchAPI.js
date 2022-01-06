@@ -8,8 +8,8 @@ function searchVid(searchVal){
     key: key,
     maxResults: 10,
     q: searchVal,
-    type: 'video',
-    videoEmbeddable: 'true'
+    // type: 'video',
+    // videoEmbeddable: 'true'
   }
   
   $.getJSON(urlSearch, optionsSearch, function (data) {
@@ -21,38 +21,51 @@ function searchVid(searchVal){
   });
 }
 
-function searchResultsLoop(data) {
-  $('main').empty();
+// try{
 
-  $.each(data.items, function (i, item) {
+  function searchResultsLoop(data) {
+    $('main').empty();
 
-      var thumb = item.snippet.thumbnails.medium.url;
-      var title = item.snippet.title;
-      var desc = item.snippet.description.substring(0, 100);
-      var vid = item.snippet.resourceId;
+    $.each(data.items, function (i, item) {
 
-      
-      $('main').append(`
-        <article class="item" data-key="${vid}">
+        var thumb = item.snippet.thumbnails.medium.url;
+        var title = item.snippet.title;
+        var desc = item.snippet.description.substring(0, 100);
+        var vid = item.snippet.resourceId;
 
-          <img src="${thumb}" alt="" class="thumb">
-          <div class="details">
-            <h4>${title}</h4>
-            <p>${desc}</p>
-          </div>
+        
+        $('main').append(`
+          <article class="item" data-key="${vid}">
 
-        </article>
-      `);
-  });
-  var id = data.items[0].snippet.thumbnails.high.url;
-  mainImgSearch(id);
-  
-  function mainImgSearch(id) {
-    $('#preview').html($('<img>',{id: 'image', src: id, width:'560', height: '315'}  
-    ));
+            <img src="${thumb}" alt="" class="thumb">
+            <div class="details">
+              <h4>${title}</h4>
+              <p>${desc}</p>
+            </div>
+
+          </article>
+        `);
+    });
+    try{
+    var id = data.items[0].snippet.thumbnails.high.url;
+    mainImgSearch(id);
+    }catch(err){
+      console.log('someerror');
+      if (err === TypeError){
+        randomVid();
+        console.log('retry');
+      }
+    }
+    function mainImgSearch(id) {
+      $('#preview').html($('<img>',{id: 'image', src: id, width:'560', height: '315'}  
+      ));
+    }
   }
-}
-
-
-
+// } catch(err){
+//   console.log('someerror');
+//   if (err === TypeError){
+//     randomVid();
+//     console.log('retry');
+//   }
+// }
 

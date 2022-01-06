@@ -79,10 +79,10 @@ $(document).ready(function () {
       console.log(pastSearches);
       $.each(pastSearches,function(i,val){
         console.log( i + '  ' + val);
-        var subMenuLI = $('<li>');
+        var subMenuLI = $(`<li>${val}<li>`);
         // subMenuLI = val;
         subMenuEL.append(subMenuLI)
-       
+
       })
       
     }
@@ -97,8 +97,10 @@ $(document).ready(function () {
       var search = $(this).text();
       drawPastSearches(search);
   });
-
-
+  //on lost focus of search bar
+  $(searchBarEL).on("focusout", function(e) {
+    subMenuEL.empty();
+  });
   //********************************************** */
 
 

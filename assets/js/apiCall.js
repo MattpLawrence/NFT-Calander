@@ -96,9 +96,9 @@ $(document).ready(function () {
       drawPastSearches(search);
   });
   //on lost focus of search bar
-  // $(searchBarEL).on("focusout", function(e) {
-  //   subMenuEL.empty();
-  // });
+  $(searchBarEL).on("focusout", function(e) {
+    subMenuEL.empty();
+  });
 
   $(subMenuEL).on('click' , function(e){
     var textValue = $(e);

@@ -2,6 +2,7 @@ var searchBtnEl = $('#searchBtn');
 var searchBarEL = $('#searchBar');
 var previewEL = $('#preview');
 var subMenuEL = $('#subMenu');
+// var formOutlineEL = $('form-outline');
 var store = window.localStorage;
 // APi key for all googleAPi searches on this project
 var key = 'AIzaSyCiyPkfNWAkg0-7BgKKX3bxxPzDH0Fop9w'; 
@@ -52,25 +53,6 @@ $(document).ready(function () {
       });
   }
 
-  // var num = 1;
-  // //save search history
-  // function saveSearchHistory(searchVal){
-  //   console.log(searchVal);
-  //   // function findNumber(){
-  //   //   if(store.getItem(num))
-  //   // }
-  //   if(num === 5){
-
-  //   }
-    
-    
-  //   console.log(num + ' first');
-  //   store.setItem(num, searchVal);
-  //   num ++ ;
-  //   console.log(num);
-  // }
-
-
   //********************************************** */
   var pastSearches =[];
 
@@ -87,21 +69,24 @@ $(document).ready(function () {
       }
       localStorage["pastSearches"] = JSON.stringify(pastSearches);
     }
+    searchBar.value = ''; //clear search bar
   }
 
   function drawPastSearches() {
     pastSearches = JSON.parse(localStorage['pastSearches']); //retrieve from local storage
-    
+
     if(pastSearches.length) {
       console.log(pastSearches);
-
       $.each(pastSearches,function(i,val){
         console.log( i + '  ' + val);
+        var subMenuLI = $('<li>');
+        // subMenuLI = val;
+        subMenuEL.append(subMenuLI)
+       
       })
-        // pasSearches.forEach(element => {
-          
-        // });
+      
     }
+    
   }
 
 
@@ -152,4 +137,6 @@ $(document).ready(function () {
 
 });
 
-
+// var subMenuLI = $('<li>')
+// // subMenuLI.text = 'val';
+// subMenuEL.append(subMenuLI)

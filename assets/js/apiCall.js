@@ -3,18 +3,20 @@ var searchBarEL = $('#searchBar');
 var previewEl = $('preview');
 // APi key for all googleAPi searches on this project
 var key = 'AIzaSyC7u-65-16e0JB7PPDDpUM8j1wFyDprLzo'; 
+var maxNumber = 10;
+
 
 $(document).ready(function () {
 
 
   var playlistId = 'PLMKA5kzkfqk2GEImRCIqGqWmQvKYygUhG';
   var urlPlay = 'https://www.googleapis.com/youtube/v3/playlistItems';
-
+  
 
   var optionsPlay = {
       part: 'snippet',
       key: key,
-      maxResults: 20,
+      maxResults: maxNumber,
       playlistId: playlistId
   }
 
@@ -30,7 +32,9 @@ $(document).ready(function () {
   function mainImg(id) {
       $('#preview').html($('<img>',{id: 'image', src: id, width:'560', height: '315'}  
       ));
+
   }
+ 
 
   
 
@@ -59,16 +63,37 @@ $(document).ready(function () {
       });
   }
 
+  // on dblClick follow to youtube page
+  function followPath(path){
+    console.log('followed')
+    window.open('https://www.youtube.com/watch?v='+ path , "_blank");
+  }
+
+
+
+
   // Click on list item
   $('main').on('click', 'article', function () {
       var id = $(this).children('img').attr('src');
       mainImg(id);
       var idThis = $(this);
-      console.log(idThis);
-      
+      console.log(idThis); 
   });
+
+  //double click
+  $('main').on('dblclick', 'article', function () {
+    //get id from splitting apart the thumbnail src URL
+    var path = $(this).children('img').attr('src');
+    console.log(path);
+    var splitPath = path.split('/');
+    console.log(splitPath);
+    var pathFinal = splitPath[4];
+    console.log(pathFinal);
+    followPath(pathFinal);
+});
   // Click on search bar button
   $(searchBtnEl).on('click', function(){
+    console.log('hewwo?')
     var searchVal = searchBar.value;
     searchVid(searchVal);
 

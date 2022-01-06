@@ -13,8 +13,11 @@ fetch("https://kareoke.p.rapidapi.com/v1/song/search?q=Spotlight&limit=" + maxNu
   return response.json();
 })
 .then(function (data){
+  var randomID = data.youtube.id;
   console.log(data)
 })
 .catch(err => {
 	console.error(err);
+
+
 }); 

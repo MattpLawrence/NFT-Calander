@@ -129,9 +129,14 @@ $(document).ready(function () {
   });
   // Click on search bar button
   $(searchBtnEl).on('click', function(){
+    //check for null value and cancel if null
+    if(searchBar.value){
     var searchVal = searchBar.value;
     searchVid(searchVal);
     saveSearchHistory(searchVal);
+    } else{
+      return;
+    }
   })
 
 

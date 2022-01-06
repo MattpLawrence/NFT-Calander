@@ -5,23 +5,17 @@ var previewEl = $('preview');
 var key = 'AIzaSyA2kJvnPrjD1ekofl7me4fCnWr9I324rGo'; 
 var maxNumber = 10;
 
-
 $(document).ready(function () {
   var playlistId = 'PLMKA5kzkfqk2GEImRCIqGqWmQvKYygUhG';
   var urlPlay = 'https://www.googleapis.com/youtube/v3/playlistItems';
   var optionsPlay = {
       part: 'snippet',
       key: key,
-
-      maxResults: 10,
-
       maxResults: maxNumber,
-
       playlistId: playlistId
   }
 
   loadVids();
-
   function loadVids() {
       $.getJSON(urlPlay, optionsPlay, function (data) {
           var id = data.items[0].snippet.thumbnails.high.url;
@@ -29,14 +23,13 @@ $(document).ready(function () {
           resultsLoop(data);
       });
   }
-  //display main thumbnail
   function mainImg(id) {
       $('#preview').html($('<img>',{id: 'image', src: id, width:'560', height: '315'}  
       ));
-
   }
- //loop through and display home page
+ // loop through to show landing page results
   function resultsLoop(data) {
+
       $.each(data.items, function (i, item) {
 
           var thumb = item.snippet.thumbnails.medium.url;
@@ -47,22 +40,22 @@ $(document).ready(function () {
 
           $('main').append(`
             <article class="item" data-key="${vid}">
-
               <img src="${thumb}" alt="" class="thumb">
               <div class="details">
                 <h4>${title}</h4>
                 <p>${desc}</p>
               </div>
-
             </article>
           `);
       });
   }
+
   // on dblClick follow to youtube page
   function followPath(path){
     console.log('followed')
     window.open('https://www.youtube.com/watch?v='+ path , "_blank");
   }
+
   // Click on list item
   $('main').on('click', 'article', function () {
       var id = $(this).children('img').attr('src');
@@ -70,34 +63,6 @@ $(document).ready(function () {
       var idThis = $(this);
       console.log(idThis); 
   });
-  
-//   //Array - trying to see if this work for random link button
-// var random = Array();
-
-// random [0] = "https://www.youtube.com/watch?v="
-// random [1] = "https://www.youtube.com/watch?v="
-// random [2] = "https://www.youtube.com/watch?v="
-
-
-
-//   function randomLink() {
-//     window.location = random[Math.floor(Math.random()*random.length)];
-//   }
-//   // randomLink
-// console.log(randomLink)
-
-
-
-  
-//   var searchHistory
-//   function searchHistory () {
-//     var prevVideo = localStorage.getItem('player');
-
-//     document.getElementById('player');
-
-//   }
-//   console.log(searchHistory)
-
   //double click
   $('main').on('dblclick', 'article', function () {
     //get id from splitting apart the thumbnail src URL
@@ -117,3 +82,7 @@ $(document).ready(function () {
 
   })
 });
+
+$(window).on('load', function () {
+  $('#loading').hide();
+}) 

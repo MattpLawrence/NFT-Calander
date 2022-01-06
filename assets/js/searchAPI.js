@@ -19,6 +19,8 @@ function searchVid(searchVal){
     // console.log(id);
     searchResultsLoop(data)
   });
+
+ mainImgSearch(searchVal);
 }
 
   function searchResultsLoop(data) {
@@ -26,27 +28,27 @@ function searchVid(searchVal){
 
     $.each(data.items, function (i, item) {
 
-        var thumb = item.snippet.thumbnails.medium.url;
-        var title = item.snippet.title;
-        var desc = item.snippet.description.substring(0, 100);
-        var vid = item.snippet.resourceId;
+    var thumb = item.snippet.thumbnails.medium.url;
+    var title = item.snippet.title;
+    var desc = item.snippet.description.substring(0, 100);
+    var vid = item.snippet.resourceId;
 
-        
-        $('main').append(`
-          <article class="item" data-key="${vid}">
+    
+    $('main').append(`
+      <article class="item" data-key="${vid}">
 
-            <img src="${thumb}" alt="" class="thumb">
-            <div class="details">
-              <h4>${title}</h4>
-              <p>${desc}</p>
-            </div>
+        <img src="${thumb}" alt="" class="thumb">
+        <div class="details">
+          <h4>${title}</h4>
+          <p>${desc}</p>
+        </div>
 
-          </article>
-        `);
+      </article>
+    `);
     });
     try{
-    var id = data.items[0].snippet.thumbnails.high.url;
-    mainImgSearch(id);
+    // var id = data.items[0].snippet.thumbnails.high.url;
+    // mainImgSearch(id);
     }catch(err){
       console.log('someerror');
       if (err === TypeError){
@@ -54,10 +56,23 @@ function searchVid(searchVal){
         console.log('retry');
       }
     }
-    function mainImgSearch(id) {
-      $('#preview').html($('<img>',{id: 'image', src: id, width:'560', height: '315'}  
-      ));
-    }
+    // function mainImgSearch(id) {
+    //   $('#preview').html($('<img>',{id: 'image', src: id, width:'560', height: '315'}  
+    //   ));
+    // }
+    // function mainImgSearch(id) {
+    //   $('#preview').html(`
+    //   <iframe width="560" height="315" src="https://www.youtube.com/embed/${id}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    // `);
+    //   console.log(id);
+    // }
+
   }
 
+  function mainImgSearch(id) {
+    $('#preview').html(`
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/${id}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  `);
+  console.log(id);
 
+  }

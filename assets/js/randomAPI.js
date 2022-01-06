@@ -33,3 +33,7 @@ $(randomBtnEl).on('click', function(){
 })
 
 var spinnerEl = $('#spinner');
+
+var vidId
+
+function setVidID(searchVal){}

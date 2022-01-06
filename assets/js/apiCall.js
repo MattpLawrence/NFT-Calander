@@ -1,6 +1,8 @@
 var searchBtnEl = $('#searchBtn');
 var searchBarEL = $('#searchBar');
-var previewEl = $('preview');
+var previewEL = $('#preview');
+var subMenuEL = $('#subMenu');
+
 // APi key for all googleAPi searches on this project
 var key = 'AIzaSyA2kJvnPrjD1ekofl7me4fCnWr9I324rGo'; 
 var maxNumber = 10;
@@ -75,14 +77,10 @@ $(document).ready(function () {
     followPath(pathFinal);
 });
   // Click on search bar button
-  $(searchBtnEl).on('submit', function(){
+  $(searchBtnEl).on('click', function(){
     console.log('hewwo?')
     var searchVal = searchBar.value;
     searchVid(searchVal);
 
   })
 });
-
-$(window).on('load', function () {
-  $('#loading').hide();
-}) 

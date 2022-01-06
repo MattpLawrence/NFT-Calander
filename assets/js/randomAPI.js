@@ -1,11 +1,4 @@
-// fetch("https://kareoke.p.rapidapi.com/v1/song/search?q=Spotlight&limit=" + maxNumber, {
-// 	"method": "GET",
-// 	"headers": {
-// 		"x-rapidapi-host": "kareoke.p.rapidapi.com",
-// 		"x-rapidapi-key": "4358a3ae45msh1ef514db96f084bp1426f0jsn143dce70b436"
-// 	}
-// })
-
+//handle random function
 function randomVid (){
   fetch("https://kareoke.p.rapidapi.com/v1/song/random", {
     "method": "GET",
@@ -26,7 +19,6 @@ function randomVid (){
     var searchVal = data.youtube.id;
     console.log(data.youtube.id);
     searchVid(searchVal);
-
   })
   .catch(err => {
     console.error(err);
@@ -36,5 +28,4 @@ var randomBtnEl = $('#randomBtn');
 
 $(randomBtnEl).on('click', function(){
   randomVid();
-
 })

@@ -51,6 +51,10 @@ section {
   margin: 0 auto;
 }
 
+#spinner{
+  display: none;
+}
+
 main {
 	padding: 370px 18px 10px;
 }

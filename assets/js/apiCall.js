@@ -32,7 +32,9 @@ $(document).ready(function () {
   function mainImg(id) {
       $('#preview').html($('<img>',{id: 'image', src: id, width:'560', height: '315'}  
       ));
+
   }
+ 
 
   
 
@@ -61,14 +63,34 @@ $(document).ready(function () {
       });
   }
 
+  // on dblClick follow to youtube page
+  function followPath(path){
+    console.log('followed')
+    window.open('https://www.youtube.com/watch?v='+ path , "_blank");
+  }
+
+
+
+
   // Click on list item
   $('main').on('click', 'article', function () {
       var id = $(this).children('img').attr('src');
       mainImg(id);
       var idThis = $(this);
-      console.log(idThis);
-      
+      console.log(idThis); 
   });
+
+  //double click
+  $('main').on('dblclick', 'article', function () {
+    //get id from splitting apart the thumbnail src URL
+    var path = $(this).children('img').attr('src');
+    console.log(path);
+    var splitPath = path.split('/');
+    console.log(splitPath);
+    var pathFinal = splitPath[4];
+    console.log(pathFinal);
+    followPath(pathFinal);
+});
   // Click on search bar button
   $(searchBtnEl).on('click', function(){
     console.log('hewwo?')

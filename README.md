@@ -5,7 +5,7 @@
 
      Music video generator is a user-friendly application that allows music aficionados to enjoy music videos. The user can select a video to play by typing into the search bar or choose to let the application randomly display a music video by pressing a button. The site also contains a side bar of previously watched music videos for storage and a description box of the playing artist/video. 
 
-     HTML and CSS with Figma and Bootstrap frameworks were used to create the struture and styling of our application. 
+     HTML and CSS with  and Bootstrap frameworks were used to create the struture and styling of our application. 
      Javascript files with jQwery are used to deploy Youtube Data API for the music video selector and artist information. Kareoke API Documentation is used to generate the random music video feature. 
      JSON is used to locally storage the users previous music videos. 
 

@@ -23,7 +23,8 @@ body {
 .container {
 	width: 80vw;
 	background-color: #fff;
-	margin: 0 auto;
+	margin-left: 280px;
+  margin-right: 20vw;
 }
 
 header,
@@ -38,8 +39,13 @@ header,section,img{
   margin-left:0;
   padding-left: 0;
 }
-section {
+/* section {
 	top: 50px;
+} */
+
+#preview{
+  position: fixed;
+  width: 280px;
 }
 
 #searchBtn{
@@ -56,7 +62,7 @@ section {
 }
 
 main {
-	padding: 370px 18px 10px;
+	padding: 18px 18px 10px;
 }
 
 article {

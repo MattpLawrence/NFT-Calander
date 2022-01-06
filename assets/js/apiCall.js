@@ -27,7 +27,7 @@ $(document).ready(function () {
       });
   }
   function mainImg(id) {
-      $('#preview').html($('<img>',{id: 'image', src: id, width:'560', height: '315'}  
+      $('#preview').html($('<img>',{id: 'image', src: id, width:'280', height: '157'}  
       ));
   }
  // loop through to show landing page results
@@ -80,8 +80,7 @@ $(document).ready(function () {
       $.each(pastSearches,function(i,val){
         console.log( i + '  ' + val);
         var subMenuLI = $(`<li>${val}<li>`);
-        // subMenuLI = val;
-        subMenuEL.append(subMenuLI)
+        subMenuEL.append(subMenuLI);
 
       })
       

@@ -59,7 +59,7 @@ function searchVid(searchVal){
       }
     }
     function mainImgSearch(id) {
-      $('#preview').html($('<img>',{id: 'image', src: id, width:'560', height: '315'}  
+      $('#preview').html($('<img>',{id: 'image', src: id, width:'280', height: '157'}  
       ));
     }
     //********************************************************************** */
@@ -67,10 +67,10 @@ function searchVid(searchVal){
   }
 
   //****************Comment in to display embedded video/ also call on line 22**************** */
-  // function mainImgSearch(id) {
-  //   $('#preview').html(`
-  //   <iframe width="560" height="315" src="https://www.youtube.com/embed/${id}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-  // `);
-  // console.log(id);
-  // }
+  function mainImgSearch(id) {
+    $('#preview').html(`
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/${id}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  `);
+  console.log(id);
+  }
   //************************************************************************ */

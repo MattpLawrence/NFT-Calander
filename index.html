@@ -5,15 +5,35 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
+
 </head>
 <body>
   <div class="container">
+    <div class="input-group">
+      <div class="form-outline">
+        <input type="search" id="searchBar" class="form-control" />
+        <label class="form-label" for="form1"></label>
+      </div>
+      <button type="button" class="btn btn-primary" id="searchBtn"> search
+        <i class="fas fa-search"></i>
+      </button>
+    
+      <div id="randomDiv">
+        <button type="button" id="randomBtn">Random</button>
+        <div class="spinner-border" role="status" id="spinner">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </div>
 
     
     <header>
-      <!-- <img src="https://richardmiddleton.me/projects/youtube/images/logo.png" alt="" class="logo"> -->
+
     </header>
+
 
     <menu> 
       <!-- search history pane on the left hand side. styling in div can be changed to layout configuration -->
@@ -91,11 +111,19 @@
 
 
   
+
+    <main>
+
+      
+      
     </main>
   
   </div>
   <!-- link the JQuery library first -->
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="./assets/js/apiCall.js"></script>
+  <script src="./assets/js/randomAPI.js"></script>
+  <script src="./assets/js/searchAPI.js"></script>
+
 </body>
 </html>

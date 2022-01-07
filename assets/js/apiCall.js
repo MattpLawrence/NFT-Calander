@@ -4,7 +4,7 @@ var previewEL = $("#preview");
 var subMenuEL = $("#subMenu");
 var store = window.localStorage;
 // APi key for all googleAPi searches on this project
-var key = "AIzaSyCiyPkfNWAkg0-7BgKKX3bxxPzDH0Fop9w";
+var key = "AIzaSyBwMqbMarkc2HTA4cfma3Qbj6cD8yxzItU";
 var maxNumber = 10;
 
 $(document).ready(function () {
@@ -64,7 +64,7 @@ $(document).ready(function () {
       }
       localStorage["pastSearches"] = JSON.stringify(pastSearches);
     }
-    // searchBar.value = ""; //clear search bar
+    searchBar.value = ""; //clear search bar
   }
 
   function drawPastSearches() {
@@ -128,20 +128,30 @@ $(document).ready(function () {
     console.log(pathFinal);
     followPath(pathFinal);
   });
-  // Click on search bar button
-
+  // **************************** search for enter key press
   $(searchBarEL).on("keyup", function (e) {
-    //check for null value and cancel if null
-    console.log("input");
-    if (searchBar.value) {
+    if (e.which == 13) {
       var searchVal = searchBar.value;
       searchVid(searchVal);
       saveSearchHistory(searchVal);
-    } else {
-      return;
+      subMenuEL.empty();
     }
   });
 
+  // *****************live update search bar, not using because of API key******
+
+  // $(searchBarEL).on("keyup", function (e) {
+  //   //check for null value and cancel if null
+  //   console.log("input");
+  //   if (searchBar.value) {
+  //     var searchVal = searchBar.value;
+  //     searchVid(searchVal);
+  //   } else {
+  //     return;
+  //   }
+  // });
+
+  // Click on search bar button
   $(searchBtnEl).on("click", function () {
     //check for null value and cancel if null
     if (searchBar.value) {

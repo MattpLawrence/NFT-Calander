@@ -114,6 +114,19 @@ $('main').on('dblclick', 'article', function () {
   var pathFinal = splitPath[4];
   console.log(pathFinal);
   followPath(pathFinal);
+
+  //double click
+  $('main').on('dblclick', 'article', function () {
+    //get id from splitting apart the thumbnail src URL
+    var path = $(this).children('img').attr('src');
+    console.log(path);
+    var splitPath = path.split('/');
+    console.log(splitPath);
+    var pathFinal = splitPath[4];
+    console.log(pathFinal);
+    followPath(pathFinal);
+
+
 });
 // Click on search bar button
 $(searchBtnEl).on('click', function(){
@@ -258,4 +271,4 @@ $(randomListEL).on("click", function (e) {
   searchBar.value = textValue;
   searchVid(textValue);
 });
-
+})

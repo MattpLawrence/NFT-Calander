@@ -47,6 +47,7 @@ section {
 }
 
 
+
 /* added preview to allow me to view left side of page - can be deleted if value is not needed*/
 #preview {
 
@@ -57,6 +58,7 @@ section {
 	width: 120px;
 	padding: 10px;
 }
+
 
 #searchBtn{
   height: 2.5rem;
@@ -84,6 +86,7 @@ article {
 	border-radius: 8px;
 	margin: 0 auto;
 }
+
 article:hover {
   border: 2px solid #ff9999;
 }

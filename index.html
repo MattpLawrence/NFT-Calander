@@ -29,50 +29,31 @@
       </div>
     </div>
 
-    
-    <header>
-
-    </header>
-
-
     <menu> 
       <!-- search history pane on the left hand side. styling in div can be changed to layout configuration -->
       <div style="width: 400px; float:left; height:0px; background:gray; margin:0px">
         <h3>Search History</h3>
             <div class = searchHistory></div>
-          
-
-    
-
-
       </div>
-
     </menu>
     
-    <section id="preview">
-      
-    
-      
-
-    </section>
+    <section id="preview"></section>
   
-
-    </section>
     <main>
 <!-- You Tube Video Player reference: https://developers.google.com/youtube/iframe_api_reference -->
 <div id="player"></div>
-<script>
+  <script>
   // API code for iframe - plays asynchronous
-  var tag = document.createElement('script');
+    var tag = document.createElement('script');
 
-  tag.src = "https://www.youtube.com/iframe_api";
-  var firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-  // iframe / YouTube player after API downloads - videoID links to video - this needs to be changed to randomized
-  var player;
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
+    // iframe / YouTube player after API downloads - videoID links to video - this needs to be changed to randomized
+    var player;
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
       height: '390',
       width: '640',
       videoId: 'M7lc1UVf-VE',
@@ -90,32 +71,21 @@
   function onPlayerReady(event) {
     event.target.playVideo();
   }
-
   // 5. The API calls this function when the player's state changes.
   //    The function indicates that when playing a video (state=1),
   //    the player should play for six seconds and then stop.
   // Can add seconds after setTimeout(stopVideo) ex. 6000 = 6 secs
-  var done = false;
-  function onPlayerStateChange(event) {
+    var done = false;
+    function onPlayerStateChange(event) {
     if (event.data == YT.PlayerState.PLAYING && !done) {
       setTimeout(stopVideo);
       done = true;
     }
   }
-  function stopVideo() {
-    player.stopVideo();
+    function stopVideo() {
+      player.stopVideo();
   }
-</script>
-
-
-  
-
-    <main>
-
-      
-      
-    </main>
-  
+  </script>  
   </div>
   <!-- link the JQuery library first -->
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

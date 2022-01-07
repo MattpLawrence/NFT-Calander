@@ -115,4 +115,12 @@ $(searchBtnEl).on('click', function(){
 
 })
 
+  // Grabs each letter in the search bar
+  $(searchBarEL).on("change keyup", function(e){
+    console.log(e.target.value);
+    e.preventDefault()
+    console.log(searchBar.value);
+    searchVid(searchBar.value);
+  }) 
+
 })

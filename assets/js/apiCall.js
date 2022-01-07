@@ -32,24 +32,23 @@ $(document).ready(function () {
  // loop through to show landing page results
   function resultsLoop(data) {
 
-      $.each(data.items, function (i, item) {
+    $.each(data.items, function (i, item) {
 
-          var thumb = item.snippet.thumbnails.medium.url;
-          var title = item.snippet.title;
-          var desc = item.snippet.description.substring(0, 100);
-          var vid = item.snippet.resourceId.videoId;
+      var thumb = item.snippet.thumbnails.medium.url;
+      var title = item.snippet.title;
+      var desc = item.snippet.description.substring(0, 100);
+      var vid = item.snippet.resourceId.videoId;
 
-
-          $('main').append(`
-            <article class="item" data-key="${vid}">
-              <img src="${thumb}" alt="" class="thumb">
-              <div class="details">
-                <h4>${title}</h4>
-                <p>${desc}</p>
-              </div>
-            </article>
-          `);
-      });
+      $('main').append(`
+        <article class="item" data-key="${vid}">
+          <img src="${thumb}" alt="" class="thumb">
+          <div class="details">
+            <h4>${title}</h4>
+            <p>${desc}</p>
+          </div>
+        </article>
+      `);
+    });
   }
 
   //*******************************************history bar*** */
@@ -104,23 +103,20 @@ $(document).ready(function () {
     searchBar.value = textValue
     searchVid(textValue)
   });
-
   
   //********************************************** */
-
 
   // on dblClick follow to youtube page
   function followPath(path){
     console.log('followed')
     window.open('https://www.youtube.com/watch?v='+ path , "_blank");
   }
-
   // Click on list item
   $('main').on('click', 'article', function () {
-      var id = $(this).children('img').attr('src');
-      mainImg(id);
-      var idThis = $(this);
-      console.log(idThis); 
+    var id = $(this).children('img').attr('src');
+    mainImg(id);
+    var idThis = $(this);
+    console.log(idThis); 
   });
   //double click
   $('main').on('dblclick', 'article', function () {

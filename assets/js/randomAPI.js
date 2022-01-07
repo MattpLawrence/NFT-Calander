@@ -1,4 +1,7 @@
 //handle random function
+var spinnerEl = $('#spinner');
+var randomBtnEl = $('#randomBtn');
+
 function randomVid (){
   spinnerEl.css("display", "inline-block") //start spinner
   fetch("https://kareoke.p.rapidapi.com/v1/song/random", {
@@ -20,20 +23,13 @@ function randomVid (){
     var searchVal = data.youtube.id;
     console.log(data.youtube.id);
     searchVid(searchVal);
-  })
+  })  
   .catch(err => {
     console.error(err);
     console.log('oops');
   }); 
 }
-var randomBtnEl = $('#randomBtn');
 
 $(randomBtnEl).on('click', function(){
   randomVid();
 })
-
-var spinnerEl = $('#spinner');
-
-var vidId
-
-function setVidID(searchVal){}

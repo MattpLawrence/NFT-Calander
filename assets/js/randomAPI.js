@@ -23,6 +23,7 @@ function randomVid (){
   })
   .catch(err => {
     console.error(err);
+    console.log('oops');
   }); 
 }
 var randomBtnEl = $('#randomBtn');
@@ -32,3 +33,7 @@ $(randomBtnEl).on('click', function(){
 })
 
 var spinnerEl = $('#spinner');
+
+var vidId
+
+function setVidID(searchVal){}

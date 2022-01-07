@@ -20,8 +20,6 @@ p {
 
 body {
 	background-color: #eee;
-	height: 1920px;
-	width: 1080px;
 }
 
 .container {
@@ -46,6 +44,7 @@ section {
 }
 
 
+
 /* added preview to allow me to view left side of page - can be deleted if value is not needed*/
 #preview {
 
@@ -56,6 +55,8 @@ section {
 	width: 120px;
 	padding: 10px;
 }
+
+
 
 #searchBtn{
   height: 2.5rem;
@@ -73,6 +74,9 @@ section {
 main {
 	padding: 100px 18px 10px;
 	box-sizing: border-box;
+
+	padding: 370px 18px 10px;
+
 }
 
 article {

@@ -31,7 +31,9 @@ $(document).ready(function () {
       $("<img>", { id: "image", src: id, width: "280", height: "157" })
     );
   }
+
   // loop through to show landing page results
+
   function resultsLoop(data) {
     $.each(data.items, function (i, item) {
       var thumb = item.snippet.thumbnails.medium.url;
@@ -88,6 +90,54 @@ $(document).ready(function () {
       drawPastSearches(search);
     }
   });
+
+  
+  //Array - trying to see if this work for random link button
+var random = Array();
+
+random [0] = "https://www.youtube.com/watch?v="
+random [1] = "https://www.youtube.com/watch?v="
+random [2] = "https://www.youtube.com/watch?v="
+
+$(window).on('load', function () {
+  $('#loading').hide();
+})
+
+
+//double click
+$('main').on('dblclick', 'article', function () {
+  //get id from splitting apart the thumbnail src URL
+  var path = $(this).children('img').attr('src');
+  console.log(path);
+  var splitPath = path.split('/');
+  console.log(splitPath);
+  var pathFinal = splitPath[4];
+  console.log(pathFinal);
+  followPath(pathFinal);
+
+  //double click
+  $('main').on('dblclick', 'article', function () {
+    //get id from splitting apart the thumbnail src URL
+    var path = $(this).children('img').attr('src');
+    console.log(path);
+    var splitPath = path.split('/');
+    console.log(splitPath);
+    var pathFinal = splitPath[4];
+    console.log(pathFinal);
+    followPath(pathFinal);
+
+
+});
+// Click on search bar button
+$(searchBtnEl).on('click', function(){
+  console.log('hewwo?')
+  var searchVal = searchBar.value;
+  searchVid(searchVal);
+
+})
+
+})
+
 
   //stop from closing sub menu when clicked
   $(searchBarEL).on("click", function (e) {
@@ -163,7 +213,7 @@ $(document).ready(function () {
       return;
     }
   });
-});
+
 
 // ******************************************past play history********************
 
@@ -221,3 +271,4 @@ $(randomListEL).on("click", function (e) {
   searchBar.value = textValue;
   searchVid(textValue);
 });
+})

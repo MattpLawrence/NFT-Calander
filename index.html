@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>NM -Mu</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
@@ -42,7 +42,103 @@
     <header>
 
     </header>
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1ef3eb201bb68916068fe1731dd7f8c22ba1da15
+
+
+    <menu> 
+      <!-- search history pane on the left hand side. styling in div can be changed to layout configuration -->
+      <div style="width: 400px; float:left; height:0px; background:gray; margin:0px">
+        <h3>Search History</h3>
+            <div class = searchHistory></div>
+          
+
+    
+
+
+      </div>
+
+    </menu>
+    
+    <section id="preview">
+      
+    
+      
+
+    </section>
+  
+
+    </section>
     <main>
+<!-- You Tube Video Player reference: https://developers.google.com/youtube/iframe_api_reference -->
+<div id="player"></div>
+<script>
+  // API code for iframe - plays asynchronous
+  var tag = document.createElement('script');
+
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  // iframe / YouTube player after API downloads - videoID links to video - this needs to be changed to randomized
+  var player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '390',
+      width: '640',
+      videoId: 'M7lc1UVf-VE',
+      playerVars: {
+        'playsinline': 1
+      },
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange
+      }
+    });
+  }
+
+  //API calls function whe video is ready.
+  function onPlayerReady(event) {
+    event.target.playVideo();
+  }
+
+  // 5. The API calls this function when the player's state changes.
+  //    The function indicates that when playing a video (state=1),
+  //    the player should play for six seconds and then stop.
+  // Can add seconds after setTimeout(stopVideo) ex. 6000 = 6 secs
+  var done = false;
+  function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.PLAYING && !done) {
+      setTimeout(stopVideo);
+      done = true;
+    }
+  }
+  function stopVideo() {
+    player.stopVideo();
+  }
+</script>
+
+
+  
+
+    <main>
+
+      
+      
+<<<<<<< HEAD
+=======
+    <main>
+>>>>>>> 98e5cb1eda2e7320db0635ba8170cc1bcdfa7d6f
+=======
+
+    <section id="preview">
+    </section>
+    <main>
+
+>>>>>>> 1ef3eb201bb68916068fe1731dd7f8c22ba1da15
     </main>
   
   </div>
@@ -51,6 +147,7 @@
   <script src="./assets/js/apiCall.js"></script>
   <script src="./assets/js/randomAPI.js"></script>
   <script src="./assets/js/searchAPI.js"></script>
+  <script src="./assets/js/localStorage.js"></script>
 
 </body>
 </html>

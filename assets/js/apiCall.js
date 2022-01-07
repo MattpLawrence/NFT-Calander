@@ -83,7 +83,6 @@ $(document).ready(function () {
         // var subMenuLI = $(`<li>`).text(val);
         var subMenuLI = $(`<button>`).text(val).attr('class','historyBtn');
         subMenuEL.append(subMenuLI);
-
       })
     }
   }
@@ -95,19 +94,25 @@ $(document).ready(function () {
       var search = $(this).text();
       drawPastSearches(search);
   });
-  //on lost focus of search bar
-  $(searchBarEL).on("focusout", function(e) {
+
+  //stop from closing sub menu when clicked
+  $(searchBarEL).on("click", function(e) {
+    console.log('clicked2');
+    e.stopPropagation();
+  });
+
+  $(document).on('click',function(){
     subMenuEL.empty();
   });
 
   $(subMenuEL).on('click' , function(e){
-    var textValue = $(e);
-    console.log(e);
+    var textValue = e.target.innerText;
     console.log(textValue);
     console.log('clicked');
-    console.log(this.innerText);
-  })
-  
+    searchBar.value = textValue
+    
+  });
+
   
   //********************************************** */
 

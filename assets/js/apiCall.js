@@ -2,6 +2,7 @@ var searchBtnEl = $("#searchBtn");
 var searchBarEL = $("#searchBar");
 var previewEL = $("#preview");
 var subMenuEL = $("#subMenu");
+var randomListEL = $("#randomList");
 var store = window.localStorage;
 // APi key for all googleAPi searches on this project
 var key = "AIzaSyBwMqbMarkc2HTA4cfma3Qbj6cD8yxzItU";
@@ -162,4 +163,46 @@ $(document).ready(function () {
       return;
     }
   });
+});
+
+// ******************************************past play history********************
+
+var pastRandom = [];
+// pull in and save random search data to local storage
+function savePlayHistory(randomUrl, randomTitle, randomImage) {
+  randomListEL.empty();
+  console.log(randomUrl);
+
+  console.log(randomTitle);
+  console.log(randomImage);
+  if (localStorage["pastRandom"]) {
+    pastRandom = JSON.parse(localStorage["pastRandom"]);
+  }
+  if (pastRandom.indexOf(randomTitle) == -1) {
+    pastRandom.unshift(randomTitle);
+    if (pastRandom.length > 10) {
+      pastRandom.pop();
+    }
+    localStorage["pastRandom"] = JSON.stringify(pastRandom);
+  }
+  drawPastRandom();
+}
+// generate sidebar values to show last 10 random searches
+function drawPastRandom() {
+  pastRandom = JSON.parse(localStorage["pastRandom"]); //retrieve from local storage
+
+  if (pastRandom.length) {
+    console.log(pastRandom);
+    $.each(pastRandom, function (i, val) {
+      var randomListLI = $(`<button>`).text(val).attr("class", "historyBtn");
+      randomListEL.append(randomListLI);
+    });
+  }
+}
+// when random history is clicked, search the video again
+$(randomListEL).on("click", function (e) {
+  var textValue = e.target.innerText;
+  console.log(textValue);
+  searchBar.value = textValue;
+  searchVid(textValue);
 });

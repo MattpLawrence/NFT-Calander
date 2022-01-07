@@ -23,6 +23,13 @@ function randomVid() {
       var searchVal = data.youtube.id;
       console.log(data.youtube.id);
       searchVid(searchVal);
+      var randomUrl = data.youtube.url;
+      console.log(randomUrl);
+      var randomTitle = data.youtube.title;
+      console.log(randomTitle);
+      var randomImage = data.youtube.image;
+      console.log(randomImage);
+      savePlayHistory(randomUrl, randomTitle, randomImage);
     })
     .catch((err) => {
       console.error(err);

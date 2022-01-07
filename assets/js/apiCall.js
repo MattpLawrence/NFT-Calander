@@ -172,7 +172,6 @@ var pastRandom = [];
 function savePlayHistory(randomUrl, randomTitle, randomImage) {
   randomListEL.empty();
   console.log(randomUrl);
-
   console.log(randomTitle);
   console.log(randomImage);
   if (localStorage["pastRandom"]) {
@@ -199,6 +198,22 @@ function drawPastRandom() {
     });
   }
 }
+historyOnLoad();
+
+function historyOnLoad(e) {
+  try {
+    drawPastRandom();
+    // if ($(subMenuEL).children().length === 0) {
+    //   console.log("yes");
+    //   // var search = $(this).text();
+    //   // drawPastSearches(search);
+    // }
+  } catch {
+    $("#randomHistory").css("display", "none");
+    console.log("catch");
+  }
+}
+
 // when random history is clicked, search the video again
 $(randomListEL).on("click", function (e) {
   var textValue = e.target.innerText;

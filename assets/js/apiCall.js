@@ -1,8 +1,9 @@
+var skipBtn = $("skip");
 var searchBtnEl = $('#searchBtn');
 var searchBarEL = $('#searchBar');
 var previewEl = $('preview');
 // APi key for all googleAPi searches on this project
-var key = 'AIzaSyC7u-65-16e0JB7PPDDpUM8j1wFyDprLzo'; 
+var key = 'AIzaSyDUrLX96RvbED8aJr3EVMPXKameFrZHhLc'; 
 var maxNumber = 10;
 
 
@@ -122,5 +123,10 @@ $(searchBtnEl).on('click', function(){
     console.log(searchBar.value);
     searchVid(searchBar.value);
   }) 
+
+  $(skipBtn).on("click", function(){
+    console.log("skip")
+    skipVId()
+  })
 
 })

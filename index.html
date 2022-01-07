@@ -8,9 +8,24 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
-
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  </script>
 </head>
+
 <body>
+  <header>
+    <h1 class="text-3xl font-bold underline text-clifford">NM.</h1><p>Discover new music</p>
+  </header>
   <div class="container">
     <div class="input-group">
       <div class="form-outline">
@@ -27,6 +42,10 @@
           <span class="sr-only">Loading...</span>
         </div>
       </div>
+
+      <div id="skip">
+        <button type="button" id="skipBtn">Next</button>
+      </div>
     </div>
 
     <menu> 
@@ -41,7 +60,7 @@
   
     <main>
 <!-- You Tube Video Player reference: https://developers.google.com/youtube/iframe_api_reference -->
-<div id="player"></div>
+  <div id="player"></div>
   <script>
   // API code for iframe - plays asynchronous
     var tag = document.createElement('script');
@@ -66,7 +85,6 @@
       }
     });
   }
-
   //API calls function whe video is ready.
   function onPlayerReady(event) {
     event.target.playVideo();

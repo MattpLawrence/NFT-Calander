@@ -39,6 +39,7 @@ $(document).ready(function () {
 
   }
  
+  
 
   
 
@@ -90,46 +91,28 @@ random [0] = "https://www.youtube.com/watch?v="
 random [1] = "https://www.youtube.com/watch?v="
 random [2] = "https://www.youtube.com/watch?v="
 
-
-
-  function randomLink() {
-    window.location = random[Math.floor(Math.random()*random.length)];
-  }
-  // randomLink
-console.log(randomLink)
-
-
-
-  
-  var searchHistory
-  function searchHistory () {
-    var prevVideo = localStorage.getItem('player');
-
-    document.getElementById('player');
-
-  }
-  console.log(searchHistory)
-
-  //double click
-  $('main').on('dblclick', 'article', function () {
-    //get id from splitting apart the thumbnail src URL
-    var path = $(this).children('img').attr('src');
-    console.log(path);
-    var splitPath = path.split('/');
-    console.log(splitPath);
-    var pathFinal = splitPath[4];
-    console.log(pathFinal);
-    followPath(pathFinal);
-});
-  // Click on search bar button
-  $(searchBtnEl).on('click', function(){
-    console.log('hewwo?')
-    var searchVal = searchBar.value;
-    searchVid(searchVal);
-
-  })
-});
-
 $(window).on('load', function () {
   $('#loading').hide();
-}) 
+})
+
+
+//double click
+$('main').on('dblclick', 'article', function () {
+  //get id from splitting apart the thumbnail src URL
+  var path = $(this).children('img').attr('src');
+  console.log(path);
+  var splitPath = path.split('/');
+  console.log(splitPath);
+  var pathFinal = splitPath[4];
+  console.log(pathFinal);
+  followPath(pathFinal);
+});
+// Click on search bar button
+$(searchBtnEl).on('click', function(){
+  console.log('hewwo?')
+  var searchVal = searchBar.value;
+  searchVid(searchVal);
+
+})
+
+})

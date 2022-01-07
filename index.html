@@ -35,11 +35,11 @@
     </header>
 
 
-    <menu> 
+    <!-- <menu>  -->
       <!-- search history pane on the left hand side. styling in div can be changed to layout configuration -->
-      <div style="width: 400px; float:left; height:200px; background:gray; margin:0px">
+      <!-- <div>
         <h3>Search History</h3>
-            <div ></div>
+            <div class = searchHistory></div>
           
 
     
@@ -47,60 +47,11 @@
 
       </div>
 
-    </menu>
+    </menu> -->
     
     <section id="preview">
-      <!-- You Tube Video Player reference: https://developers.google.com/youtube/iframe_api_reference -->
-      <div id="player"></div>
-      <script>
-        // API code for iframe - plays asynchronous
-        var tag = document.createElement('script');
-  
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
- 
-        // iframe / YouTube player after API downloads - videoID links to video - this needs to be changed to randomized
-        var player;
-        function onYouTubeIframeAPIReady() {
-          player = new YT.Player('player', {
-            height: '390',
-            width: '640',
-            videoId: 'M7lc1UVf-VE',
-            playerVars: {
-              'playsinline': 1
-            },
-            events: {
-              'onReady': onPlayerReady,
-              'onStateChange': onPlayerStateChange
-            }
-          });
-        }
+      
     
-        //API calls function whe video is ready.
-        function onPlayerReady(event) {
-          event.target.playVideo();
-        }
-  
-        // 5. The API calls this function when the player's state changes.
-        //    The function indicates that when playing a video (state=1),
-        //    the player should play for six seconds and then stop.
-        // Can add seconds after setTimeout(stopVideo) ex. 6000 = 6 secs
-        var done = false;
-        function onPlayerStateChange(event) {
-          if (event.data == YT.PlayerState.PLAYING && !done) {
-            setTimeout(stopVideo);
-            done = true;
-          }
-        }
-        function stopVideo() {
-          player.stopVideo();
-        }
-      </script>
-
-      <button>
-        <a href="javascript:randomLink()">Click here for random link</a>
-      </button>
       
 
     </section>
@@ -108,12 +59,56 @@
 
     </section>
     <main>
+<!-- You Tube Video Player reference: https://developers.google.com/youtube/iframe_api_reference -->
+<div id="player"></div>
+<script>
+  // API code for iframe - plays asynchronous
+  var tag = document.createElement('script');
+
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  // iframe / YouTube player after API downloads - videoID links to video - this needs to be changed to randomized
+  var player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '390',
+      width: '640',
+      videoId: 'M7lc1UVf-VE',
+      playerVars: {
+        'playsinline': 1
+      },
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange
+      }
+    });
+  }
+
+  //API calls function whe video is ready.
+  function onPlayerReady(event) {
+    event.target.playVideo();
+  }
+
+  // 5. The API calls this function when the player's state changes.
+  //    The function indicates that when playing a video (state=1),
+  //    the player should play for six seconds and then stop.
+  // Can add seconds after setTimeout(stopVideo) ex. 6000 = 6 secs
+  var done = false;
+  function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.PLAYING && !done) {
+      setTimeout(stopVideo);
+      done = true;
+    }
+  }
+  function stopVideo() {
+    player.stopVideo();
+  }
+</script>
 
 
   
-
-    <main>
-
       
       
     </main>
@@ -124,6 +119,7 @@
   <script src="./assets/js/apiCall.js"></script>
   <script src="./assets/js/randomAPI.js"></script>
   <script src="./assets/js/searchAPI.js"></script>
+  <script src="./assets/js/localStorage.js"></script>
 
 </body>
 </html>

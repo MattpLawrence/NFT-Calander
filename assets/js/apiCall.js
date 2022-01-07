@@ -2,8 +2,6 @@ var searchBtnEl = $('#searchBtn');
 var searchBarEL = $('#searchBar');
 var previewEL = $('#preview');
 var subMenuEL = $('#subMenu');
-// var searchAreaEL = $('.form-outline');
-// var formOutlineEL = $('form-outline');
 var store = window.localStorage;
 // APi key for all googleAPi searches on this project
 var key = 'AIzaSyCiyPkfNWAkg0-7BgKKX3bxxPzDH0Fop9w'; 
@@ -58,7 +56,6 @@ $(document).ready(function () {
   var pastSearches =[];
 
   function saveSearchHistory(searchVal){
-    console.log('save try');
     if(localStorage['pastSearches']){
       pastSearches = JSON.parse(localStorage['pastSearches']);
     }
@@ -72,15 +69,12 @@ $(document).ready(function () {
     searchBar.value = ''; //clear search bar
   }
 
-
   function drawPastSearches() {
     pastSearches = JSON.parse(localStorage['pastSearches']); //retrieve from local storage
 
     if(pastSearches.length) {
       console.log(pastSearches);
       $.each(pastSearches,function(i,val){
-        console.log( i + '  ' + val);
-        // var subMenuLI = $(`<li>`).text(val);
         var subMenuLI = $(`<button>`).text(val).attr('class','historyBtn');
         subMenuEL.append(subMenuLI);
       })
@@ -89,15 +83,15 @@ $(document).ready(function () {
 
   //on search bar focus
   $(searchBarEL).on("focus", function(e) {
+    if($(subMenuEL).children().length === 0){
       e.preventDefault();
-      console.log('first focus');
       var search = $(this).text();
       drawPastSearches(search);
+    }
   });
 
   //stop from closing sub menu when clicked
   $(searchBarEL).on("click", function(e) {
-    console.log('clicked2');
     e.stopPropagation();
   });
 
@@ -107,8 +101,6 @@ $(document).ready(function () {
 
   $(subMenuEL).on('click' , function(e){
     var textValue = e.target.innerText;
-    console.log(textValue);
-    console.log('clicked');
     searchBar.value = textValue
     searchVid(textValue)
   });

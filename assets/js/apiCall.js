@@ -110,7 +110,7 @@ $(document).ready(function () {
     console.log(textValue);
     console.log('clicked');
     searchBar.value = textValue
-    
+    searchVid(textValue)
   });
 
   

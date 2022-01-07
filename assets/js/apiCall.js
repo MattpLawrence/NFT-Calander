@@ -5,7 +5,7 @@ var subMenuEL = $("#subMenu");
 var randomListEL = $("#randomList");
 var store = window.localStorage;
 // APi key for all googleAPi searches on this project
-var key = "AIzaSyBwMqbMarkc2HTA4cfma3Qbj6cD8yxzItU";
+var key = "AIzaSyDUrLX96RvbED8aJr3EVMPXKameFrZHhLc";
 var maxNumber = 10;
 
 $(document).ready(function () {
@@ -22,6 +22,7 @@ $(document).ready(function () {
   function loadVids() {
     $.getJSON(urlPlay, optionsPlay, function (data) {
       var id = data.items[0].snippet.thumbnails.high.url;
+      console.log(data);
       mainImg(id);
       resultsLoop(data);
     });
@@ -165,7 +166,7 @@ $(document).ready(function () {
   });
 });
 
-// ******************************************past play history********************
+// ******************************************past random history********************
 
 var pastRandom = [];
 // pull in and save random search data to local storage
@@ -189,7 +190,7 @@ function savePlayHistory(randomUrl, randomTitle, randomImage) {
 // generate sidebar values to show last 10 random searches
 function drawPastRandom() {
   pastRandom = JSON.parse(localStorage["pastRandom"]); //retrieve from local storage
-
+  $("#randomHistory").css("display", "initial");
   if (pastRandom.length) {
     console.log(pastRandom);
     $.each(pastRandom, function (i, val) {
@@ -203,11 +204,7 @@ historyOnLoad();
 function historyOnLoad(e) {
   try {
     drawPastRandom();
-    // if ($(subMenuEL).children().length === 0) {
-    //   console.log("yes");
-    //   // var search = $(this).text();
-    //   // drawPastSearches(search);
-    // }
+    console.log("display?");
   } catch {
     $("#randomHistory").css("display", "none");
     console.log("catch");

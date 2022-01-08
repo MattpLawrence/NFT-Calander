@@ -124,9 +124,4 @@ $(searchBtnEl).on('click', function(){
     searchVid(searchBar.value);
   }) 
 
-  $(skipBtn).on("click", function(){
-    console.log("skip")
-    skipVId()
-  })
-
 })

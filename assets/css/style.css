@@ -19,13 +19,14 @@ p {
 }
 
 body {
-	background-color: #eee;
+	
+	background-image: url("../background.jpeg");
 	height: 1920px;
 	width: 1080px;
 }
 
 .container {
-	background-color: #fff;
+	/* background-color: #fff; */
 	margin: 0 auto;
 }
 
@@ -93,4 +94,13 @@ article:hover {
 
 .details {
 	padding: 8px 22px;
+}
+
+
+.search-section {
+	width: 400px; 
+	float:left; 
+	height:0px; 
+	/* background:gray;  */
+	margin:0px;
 }

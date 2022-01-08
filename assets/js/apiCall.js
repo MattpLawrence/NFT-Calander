@@ -1,4 +1,3 @@
-var skipBtn = $("skip");
 var searchBtnEl = $('#searchBtn');
 var searchBarEL = $('#searchBar');
 var previewEl = $('preview');

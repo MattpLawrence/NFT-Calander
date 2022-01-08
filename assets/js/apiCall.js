@@ -3,7 +3,7 @@ var searchBtnEl = $('#searchBtn');
 var searchBarEL = $('#searchBar');
 var previewEl = $('preview');
 // APi key for all googleAPi searches on this project
-var key = 'AIzaSyDUrLX96RvbED8aJr3EVMPXKameFrZHhLc'; 
+var key = 'AIzaSyC4ftxwBeaDKqZQuBcrOJamJM79ZdqPFwA'; 
 var maxNumber = 10;
 
 

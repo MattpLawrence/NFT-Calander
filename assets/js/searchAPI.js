@@ -21,7 +21,7 @@ function searchVid(searchVal) {
 function searchResultsLoop(data) {
   $("main").empty();
   searchBar.value = "";
-
+  console.log(data);
   $.each(data.items, function (i, item) {
     var thumb = item.snippet.thumbnails.medium.url;
     var title = item.snippet.title;

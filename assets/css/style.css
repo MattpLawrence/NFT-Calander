@@ -36,6 +36,13 @@ header {
   margin-top: 200px;
   margin-right: 200px;
 }
+#historyBtn {
+  color: black;
+  background-color: black;
+}
+#tooltip-bottom {
+  background-color: black;
+}
 
 #randomHistory {
   position: fixed;

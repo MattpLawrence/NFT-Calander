@@ -65,7 +65,9 @@ body {
   position: fixed;
   width: 280px;
 }
-
+#searchBar {
+  width: 20rem;
+}
 .input-group {
   position: fixed;
   margin-top: -20px;
@@ -92,7 +94,10 @@ body {
 #randomBtn {
   border-radius: 5px;
   margin-left: -200px;
-  float: left;
+  width: 10rem;
+  height: 2.3rem;
+  background-color: white;
+  border: 3px rgb(53, 53, 95) solid;
 }
 #randomDiv {
   display: inline;

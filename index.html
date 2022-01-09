@@ -18,40 +18,47 @@
 <body>
   
  <!-- Image and text -->
-<nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">
-    <img src="./assets/images/favicon.ico" width="30" height="30" class="d-inline-block align-top" alt="">
-    NuMu
-  </a>
-</nav>
-  <aside>
-  <section id="preview">
-  </section>
-  <div id="randomHistory">
-    Play History
-  </div>
-  <ul id="randomList"></ul>
-  </aside>
-
-  <div class="container">
-    <div class="input-group">
-      <div class="form-outline">
-        <input type="search" id="searchBar" class="form-control" />
-        <label class="form-label" for="form1"></label>
-        <ul id='subMenu'></ul>
-      </div>
-      <button type="button" class="btn btn-primary" id="searchBtn"> search
-        <i class="fas fa-search"></i>
-      </button>
+  <nav class="navbar navbar-dark bg-dark fixed-top" id="navBar">
+    <div class="container-fluid"></div>
+    <a class="navbar-brand" href="#">
+      <img src="./assets/images/favicon.ico" width="30" height="30" class="d-inline-block align-top" alt="">
+      NuMu
+    </a>
     
-      <div id="randomDiv">
-        <button type="button" id="randomBtn">Random</button>
-        <div class="spinner-border" role="status" id="spinner">
-          <span class="sr-only">Loading...</span>
+    </div>
+  </nav>
+
+  <div id="Body">
+
+    <aside>
+    <section id="preview">
+    </section>
+    <div id="randomHistory">
+      Play History
+    </div>
+    <ul id="randomList"></ul>
+    </aside>
+
+    <div class="container">
+      <div class="input-group" id="inputGroup">
+        <div class="form-outline">
+          <input type="search" id="searchBar" class="form-control" />
+          <label class="form-label" for="form1"></label>
+          <ul id='subMenu'></ul>
+        </div>
+        <button type="button" class="btn btn-primary" id="searchBtn"> search
+          <i class="fas fa-search"></i>
+        </button>
+      
+        <div id="randomDiv">
+          <button type="button" id="randomBtn">Random</button>
+          <div class="spinner-border" role="status" id="spinner">
+            <span class="sr-only">Loading...</span>
+          </div>
         </div>
       </div>
+    <main></main>
     </div>
- <main></main>
   </div>
   <!-- link the JQuery library first -->
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

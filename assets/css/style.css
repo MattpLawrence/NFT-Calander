@@ -93,8 +93,10 @@ body {
   width: 10rem;
   height: 2.3rem;
   background-color: white;
+  color: black;
   border: 3px rgb(53, 53, 95) solid;
   transition: 0.5s;
+  line-height: 1rem;
 }
 #searchBtn:hover {
   transform: scale(1.1);
@@ -119,6 +121,10 @@ body {
   height: 2.3rem;
   background-color: white;
   border: 3px rgb(53, 53, 95) solid;
+  transition: 0.5s;
+}
+#randomBtn:hover {
+  transform: scale(1.1);
 }
 #randomDiv {
   display: inline;

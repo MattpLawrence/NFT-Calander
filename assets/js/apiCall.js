@@ -5,7 +5,7 @@ var subMenuEL = $("#subMenu");
 var randomListEL = $("#randomList");
 var store = window.localStorage;
 // APi key for all googleAPi searches on this project
-var key = "AIzaSyDUrLX96RvbED8aJr3EVMPXKameFrZHhLc";
+var key = "AIzaSyC_YpJ9V9iJS5Zp6VZBaecENgQDc9XOYcc";
 var maxNumber = 10;
 
 $(document).ready(function () {
@@ -98,6 +98,7 @@ $(document).ready(function () {
 
   $(document).on("click", function () {
     subMenuEL.empty();
+    $("#subMenu").css("display", "none");
   });
 
   $(subMenuEL).on("click", function (e) {

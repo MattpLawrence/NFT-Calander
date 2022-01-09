@@ -53,7 +53,7 @@
                             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                                 <!-- Modal header -->
                                 <div class="flex justify-between items-center p-5 rounded-t border-b dark:border-gray-600">
-                                <source media="(min-width: )" srcset=""> class="text-xl font-medium text-gray-900 dark:text-white">
+                                <!-- <source media="(min-width: )" srcset=""> class="text-xl font-medium text-gray-900 dark:text-white"> -->
                                         Recently played
                                     </h3>
                                     <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="history-modal">
@@ -120,15 +120,16 @@
 
         <!-- random button div -->
         <div class="flex justify-center pt-5">
-            <div class="flex flex-col">
+            <div class="flex flex-col"id="randomDiv">
                 <!-- click me text -->
                 <p class="text-sm text-center text-[#AAAAAA]">Bored of this?</p>
                 <!-- random button -->
-                <button type="submit" class="bg-[#101010] w-[160px] mt-2 mb-4 hover:bg-[#B12519] text-[#EDEDED] text-md px-6 py-2 rounded-full border border-[#B12519]">
+                <button type="button" class="bg-[#101010] w-[160px] mt-2 mb-4 hover:bg-[#B12519] text-[#EDEDED] text-md px-6 py-2 rounded-full border border-[#B12519]" id="randomBtn">
                     Play whatever
                 </button>
             </div>
         </div>
+    <script src=".assets/randomAPI.js"></script>
     <script src="https://unpkg.com/@themesberg/flowbite@1.3.0/dist/flowbite.bundle.js"></script>
     </body>
 </html>

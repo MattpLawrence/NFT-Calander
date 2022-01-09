@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>NM | Now Playing</title>
+        <title>NM | Discover New Music</title>
         <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
         <script src="https://cdn.tailwindcss.com"></script>
         <script src="https://kit.fontawesome.com/143986e3b2.js" crossorigin="anonymous"></script>
@@ -66,7 +66,7 @@
                                         Filler text about how I haven't had a chicken nugget in over 8 years. I don't know, they just don't taste all that good to me. Like, their flavor is essentially just the flavor of the breading. That, and the fact that I once found a feather in my chicken nugget really make it seem pretty unappetizing. 
                                     </p>
                                     <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                                        I am filling this area with text as well so that I can just fill this area until workable code is entered. So, I guess I'll try to come up with a random long paragraph so I can check the scroll function of the modal in this web app. For some reason all I can think about right now that could use some explanation is PCR testing. It's become so mainstream to talk about PCR testing because of COVID, but I remember using it to genotype lab specimens in college. PCR stands for Polymerase Chain Reaction and it is a method of increasing the sample DNA for testing. There are two reagents involved in PCR testing: the polymerase solution and the primers. While I'm not 100% sure how they work, I do know that it required hours of pipetting a week. And I can still remember the smell of a fresh slab of agarose gel straight from the lab microwave. Which was surprisingly not horrible. I still have nightmares about those days, literally months of my time spent slightly underground in a world of sterile off-white lab equipment, with the smell of disinfectant and bleach permeating the air. I suppose it was a cool experience working in a lab, but I wouldn't say that it was a fun one. 
+                                        I am filling this area with text as well so that I can just fill this area until workable code is entered. 
                                     </p>
                                 </div>                                
                             </div>
@@ -86,47 +86,23 @@
             </nav>
         </header>
 
-        <!-- video player div -->
-        <div class="flex justify-center mt-8"> 
-            <!-- video player -->
-            <div class="relative m-0 w-3/5 h-1/3 pt-1/3" style="padding-top: 35.25%">
-                <iframe class="absolute inset-0 w-full aspect-video" src="https://www.youtube.com/embed/uV2yMgh85qU" frameborder="0" …></iframe>
-            </div>
-        </div>
-        <!-- video information + skip button div -->
-        <div class="flex justify-center mt-2">
-            <div class="w-3/5 flex flex-nowrap justify-between">
-                <!-- video information -->
-                <div class="text-[#FFFFFF] mt-1 w-4/5">
-                    <p class="truncate text-2xl">keshi - SOMEBODY</p>
-                    <p class="truncate text-md">keshi</p>
+        <!-- random button div -->
+        <div class="flex justify-center pt-40">
+            <div class="flex flex-col">
+                <div>
+                    <!-- click me text -->
+                    <p class="text-5xl text-center font-semibold text-[#AAAAAA]">Looking for something new?</p>
                 </div>
-                <!-- skip button -->
-                <div class="w-auto">
-                    <button type="button" class="bg-[#2E2E2E] hover:bg-[#252424] text-[#FFFFFF] text-md px-6 py-2 rounded-full">
-                        <span class="font-semibold">Skip</span> <i class="fas fa-fast-forward pl-1"></i>
+                <div class="flex justify-center pt-6">
+                    <!-- random button -->
+                    <button type="submit" class="bg-[#B12519] w-[180px] h-[48px] mt-2 mb-4 hover:bg-[#770000] text-[#FFFFFF] font-semibold text-lg px-6 py-2 rounded-full">
+                        Play whatever
                     </button>
                 </div>
-            </div>
-        </div>
-
-        <!-- divide bar -->
-        <div class="flex justify-center pt-5">
-            <div class="divide-y divide-[#393939] w-3/5">
-                <div></div>
-                <div></div>
-            </div>
-        </div>
-
-        <!-- random button div -->
-        <div class="flex justify-center pt-5">
-            <div class="flex flex-col">
-                <!-- click me text -->
-                <p class="text-sm text-center text-[#AAAAAA]">Bored of this?</p>
-                <!-- random button -->
-                <button type="submit" class="bg-[#101010] w-[160px] mt-2 mb-4 hover:bg-[#B12519] text-[#EDEDED] text-md px-6 py-2 rounded-full border border-[#B12519]">
-                    Play whatever
-                </button>
+                <div class="mt-16">
+                    <!-- or search text -->
+                    <p class="text-lg text-center text-[#AAAAAA]">Or search for your favorite songs</p>
+                </div>
             </div>
         </div>
     <script src="https://unpkg.com/@themesberg/flowbite@1.3.0/dist/flowbite.bundle.js"></script>

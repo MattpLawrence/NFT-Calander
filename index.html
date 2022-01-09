@@ -1,27 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NM | Discover New Music</title>
-  <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
-
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
-</head>
 
+</head>
 <body>
+  <aside>
+  <section id="preview">
+  </section>
+  <div id="randomHistory">
+    Play History
+  </div>
+  <ul id="randomList"></ul>
+  </aside>
+
   <div class="container">
     <div class="input-group">
       <div class="form-outline">
         <input type="search" id="searchBar" class="form-control" />
         <label class="form-label" for="form1"></label>
+        <ul id='subMenu'></ul>
       </div>
       <button type="button" class="btn btn-primary" id="searchBtn"> search
         <i class="fas fa-search"></i>
       </button>
+    
       <div id="randomDiv">
         <button type="button" id="randomBtn">Random</button>
         <div class="spinner-border" role="status" id="spinner">
@@ -30,87 +41,10 @@
       </div>
     </div>
 
-    <menu> 
-      <!-- search history pane on the left hand side. styling in div can be changed to layout configuration -->
-      <div style="width: 400px; float:left; height:200px; background:gray; margin:0px">
-        <h3>Search History</h3>
-            <div ></div>
-          
+    <header>
 
-    
-
-
-      </div>
-
-    </menu>
-    
-    <section id="preview">
-      <!-- You Tube Video Player reference: https://developers.google.com/youtube/iframe_api_reference -->
-      <div id="player"></div>
-      <script>
-        // API code for iframe - plays asynchronous
-        var tag = document.createElement('script');
-  
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
- 
-        // iframe / YouTube player after API downloads - videoID links to video - this needs to be changed to randomized
-        var player;
-        function onYouTubeIframeAPIReady() {
-          player = new YT.Player('player', {
-            height: '390',
-            width: '640',
-            videoId: 'M7lc1UVf-VE',
-            playerVars: {
-              'playsinline': 1
-            },
-            events: {
-              'onReady': onPlayerReady,
-              'onStateChange': onPlayerStateChange
-            }
-          });
-        }
-    
-        //API calls function whe video is ready.
-        function onPlayerReady(event) {
-          event.target.playVideo();
-        }
-  
-        // 5. The API calls this function when the player's state changes.
-        //    The function indicates that when playing a video (state=1),
-        //    the player should play for six seconds and then stop.
-        // Can add seconds after setTimeout(stopVideo) ex. 6000 = 6 secs
-        var done = false;
-        function onPlayerStateChange(event) {
-          if (event.data == YT.PlayerState.PLAYING && !done) {
-            setTimeout(stopVideo);
-            done = true;
-          }
-        }
-        function stopVideo() {
-          player.stopVideo();
-        }
-      </script>
-
-      <button>
-        <a href="javascript:randomLink()">Click here for random link</a>
-      </button>
-      
-
-    </section>
-  
-
-    </section>
+    </header>
     <main>
-
-
-  
-
-    <main>
-
-      
-      
     </main>
   
   </div>

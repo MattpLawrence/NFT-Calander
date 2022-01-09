@@ -48,6 +48,7 @@ img {
   margin-top: 200px;
   text-align: center;
   font-size: 2rem;
+  color: back;
 }
 #randomList {
   position: fixed;
@@ -70,10 +71,12 @@ img {
   position: fixed;
 }
 .historyLI {
-  position: fixed;
+  /* position: fixed; */
+  position: block;
   display: block;
-  color: black;
+  color: white;
   margin: 2px auto;
+  margin-left: 20px;
   width: 100%;
 }
 

@@ -75,7 +75,7 @@ $(document).ready(function () {
     if (pastSearches.length) {
       console.log(pastSearches);
       $.each(pastSearches, function (i, val) {
-        var subMenuLI = $(`<button>`).text(val).attr("class", "historyBtn");
+        var subMenuLI = $(`<li>`).text(val).attr("class", "historyLI");
         subMenuEL.append(subMenuLI);
       });
     }
@@ -157,6 +157,7 @@ $(document).ready(function () {
   $(searchBtnEl).on("click", function () {
     //check for null value and cancel if null
     if (searchBar.value) {
+      console.log("clicked");
       var searchVal = searchBar.value;
       searchVid(searchVal);
       saveSearchHistory(searchVal);

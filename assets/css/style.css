@@ -26,7 +26,8 @@ body {
   margin-right: 20vw;
 }
 
-header,
+/* get rid of this style for new layout */
+/* header, 
 section {
   position: fixed;
   text-align: center;
@@ -39,7 +40,7 @@ section,
 img {
   margin-left: 0;
   padding-left: 0;
-}
+} */
 
 #randomHistory {
   position: fixed;
@@ -65,14 +66,18 @@ img {
   height: 2.5rem;
 }
 
-.historyBtn {
+#subMenu {
+  position: fixed;
+}
+.historyLI {
+  position: fixed;
   display: block;
   color: black;
   margin: 2px auto;
   width: 100%;
 }
 
-.historyBtn:hover {
+.historyLI:hover {
   background-color: rgb(155, 166, 226);
 }
 

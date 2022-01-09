@@ -72,6 +72,7 @@ body {
 }
 #searchBar {
   width: 20rem;
+  border: 2px rgb(131, 131, 141) solid;
 }
 .input-group {
   position: fixed;

@@ -6,7 +6,7 @@ function searchVid(searchVal) {
   var optionsSearch = {
     part: "snippet",
     key: key,
-    maxResults: 10,
+    maxResults: 1,
     q: searchVal,
     type: "video",
     videoEmbeddable: "true",
@@ -21,29 +21,34 @@ function searchVid(searchVal) {
 function searchResultsLoop(data) {
   $("main").empty();
 
-  $.each(data.items, function (i, item) {
-    var thumb = item.snippet.thumbnails.medium.url;
-    var title = item.snippet.title;
-    var desc = item.snippet.description.substring(0, 100);
-    var vid = item.snippet.resourceId;
+  // $.each(data.items, function (i, item) {
+  //   var thumb = item.snippet.thumbnails.medium.url;
+  //   var title = item.snippet.title;
+  //   var desc = item.snippet.description.substring(0, 100);
+  //   var vid = item.snippet.resourceId;
 
-    $("main").append(`
-    <article class="item" data-key="${vid}">
-      <img src="${thumb}" alt="" class="thumb">
-      <div class="details">
-        <h4>${title}</h4>
-        <p>${desc}</p>
-      </div>
-    </article>
-  `);
-  });
+  //   $("main").append(`
+  //   <article class="item" data-key="${vid}">
+  //     <img src="${thumb}" alt="" class="thumb">
+  //     <div class="details">
+  //       <h4>${title}</h4>
+  //       <p>${desc}</p>
+  //     </div>
+  //   </article>
+  // `);
+  // });
 
   //****************comment back in to display thumbnail******** */
 
   try {
-    var id = data.items[0].snippet.thumbnails.high.url;
-    mainImgSearch(id);
+    console.log(data);
+    var thumb = data.items[0].snippet.thumbnails.high.url;
+    var id = data.items[0].id.videoId;
+    var title = data.items[0].snippet.title;
+    // mainImgSearch(id);
     console.log(id);
+    console.log(thumb);
+    console.log(title);
   } catch (err) {
     console.log("someerror");
     randomVid();

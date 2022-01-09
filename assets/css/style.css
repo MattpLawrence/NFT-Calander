@@ -26,19 +26,15 @@ body {
   margin-right: 20vw;
 }
 
-header,
-section {
-  position: fixed;
-  text-align: center;
-  width: 560px;
-  background-color: #fff;
-  margin-top: 2rem;
+header {
+  width: 100vw;
+  height: 80px;
 }
-header,
-section,
-img {
-  margin-left: 0;
-  padding-left: 0;
+
+#historyCard {
+  position: fixed;
+  margin-top: 200px;
+  margin-right: 200px;
 }
 
 #randomHistory {

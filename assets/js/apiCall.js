@@ -76,7 +76,9 @@ $(document).ready(function () {
       $("#subMenu").css("display", "block");
       console.log(pastSearches);
       $.each(pastSearches, function (i, val) {
-        var subMenuLI = $(`<li>`).text(val).attr("class", "historyBtn");
+        var subMenuLI = $(`<li>`)
+          .text(val)
+          .attr({ class: "historyBtn search" });
         subMenuEL.append(subMenuLI);
       });
     }

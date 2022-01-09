@@ -48,14 +48,6 @@ body {
   top: 100;
 }
 
-#historyBtn {
-  color: black;
-  background-color: black;
-}
-#tooltip-bottom {
-  background-color: black;
-}
-
 #image {
   margin-top: 50px;
 }
@@ -115,6 +107,10 @@ body {
 
 .historyBtn:hover {
   transform: scale(1.1);
+}
+
+.search {
+  border: none;
 }
 /* **********************random**************** */
 #randomBtn {

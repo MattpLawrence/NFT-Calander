@@ -6,16 +6,6 @@ h4 {
   font-family: "Ubuntu", sans-serif;
 }
 
-/* get rid of for new layout */
-/* p {
-  padding: 0;
-  margin: 0;
-  line-height: 1.3;
-  font-weight: 600;
-  color: grey;
-  font-size: 0.7rem;
-} */
-
 body {
   background-color: #eee;
 }
@@ -26,22 +16,6 @@ body {
   margin-left: 280px;
   margin-right: 20vw;
 }
-
-/* get rid of this style for new layout */
-/* header, 
-section {
-  position: fixed;
-  text-align: center;
-  width: 560px;
-  background-color: #fff;
-  margin-top: 2rem;
-}
-header,
-section,
-img {
-  margin-left: 0;
-  padding-left: 0;
-} */
 
 #randomHistory {
   position: fixed;

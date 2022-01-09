@@ -165,6 +165,19 @@ $(document).ready(function () {
       return;
     }
   });
+
+  // Click on search bar button landing page
+  $("#landingPageSearch").on("click", function () {
+    //check for null value and cancel if null
+    // if (searchBar.value) {
+    //   console.log("clicked");
+    //   var searchVal = searchBar.value;
+    //   searchVid(searchVal);
+    //   saveSearchHistory(searchVal);
+    // } else {
+    //   return;
+    // }
+  });
 });
 
 // ******************************************past random history********************
@@ -200,7 +213,8 @@ function drawPastRandom() {
     });
   }
 }
-historyOnLoad();
+// switch to modal
+// historyOnLoad();
 
 function historyOnLoad(e) {
   try {

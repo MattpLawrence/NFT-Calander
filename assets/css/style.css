@@ -63,25 +63,28 @@ img {
   width: 280px;
 }
 
-#searchBtn {
-  height: 2.5rem;
-}
-
 #subMenu {
   position: fixed;
+  width: 291px;
+  /* margin-left: 20px; */
+  background-color: white;
+  border-radius: 5px;
+  font-family: sans-serif;
 }
 .historyLI {
   /* position: fixed; */
   position: block;
   display: block;
-  color: white;
+  color: black;
   margin: 2px auto;
   margin-left: 20px;
   width: 100%;
+  width: 80%;
+  font-weight: 400;
 }
 
 .historyLI:hover {
-  background-color: rgb(155, 166, 226);
+  background-color: rgb(233, 234, 236);
 }
 
 #randomDiv {

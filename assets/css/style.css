@@ -75,7 +75,10 @@ img {
 .historyBtn:hover {
   background-color: rgb(155, 166, 226);
 }
-
+/* **********************random**************** */
+#randomBtn {
+  border-radius: 5px;
+}
 #randomDiv {
   display: inline;
   margin: 0 auto;

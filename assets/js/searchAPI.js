@@ -45,10 +45,15 @@ function searchResultsLoop(data) {
     var thumb = data.items[0].snippet.thumbnails.high.url;
     var id = data.items[0].id.videoId;
     var title = data.items[0].snippet.title;
+    var description = data.items[0].snippet.description;
+    var channel = data.items[0].snippet.channelTitle;
     // mainImgSearch(id);
     console.log(id);
     console.log(thumb);
     console.log(title);
+    console.log(description);
+    console.log(channel);
+    $("#preview").html($("<img>", { id: "image", src: thumb }));
   } catch (err) {
     console.log("someerror");
     randomVid();

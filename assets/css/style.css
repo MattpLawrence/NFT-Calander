@@ -33,10 +33,10 @@ body {
   font-size: 1rem;
 }
 
-#preview {
+/* #preview {
   position: fixed;
   width: 280px;
-}
+} */
 
 #subMenu {
   position: fixed;

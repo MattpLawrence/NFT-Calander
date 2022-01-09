@@ -91,8 +91,9 @@
         <!-- video player div -->
         <div class="flex justify-center mt-8"> 
             <!-- video player -->
-            <div class="relative m-0 w-3/5 h-1/3 pt-1/3" style="padding-top: 35.25%">
-                <iframe class="absolute inset-0 w-full aspect-video" src="https://www.youtube.com/embed/uV2yMgh85qU" frameborder="0" …></iframe>
+            <div class="relative m-0 w-3/5 h-1/3 pt-1/3" id="preview" style="padding-top: 35.25%">
+              <section id="preview">
+              </section>
             </div>
         </div>
         <!-- video information + skip button div -->
@@ -100,8 +101,8 @@
             <div class="w-3/5 flex flex-nowrap justify-between">
                 <!-- video information -->
                 <div class="text-[#FFFFFF] mt-1 w-4/5">
-                    <p class="truncate text-2xl">keshi - SOMEBODY</p>
-                    <p class="truncate text-md">keshi</p>
+                    <p class="truncate text-2xl" id="nowtitle">keshi - SOMEBODY</p>
+                    <p class="truncate text-md" id="nowDescription">keshi</p>
                 </div>
                 <!-- skip button -->
                 <div class="w-auto">

@@ -43,16 +43,16 @@ function searchResultsLoop(data) {
   try {
     var id = data.items[0].snippet.thumbnails.high.url;
     mainImgSearch(id);
+    console.log(id);
   } catch (err) {
     console.log("someerror");
     randomVid();
     console.log("retry");
   }
   function mainImgSearch(id) {
-    $("#preview").html(
-      $("<img>", { id: "image", src: id, width: "280", height: "157" })
-    );
+    $("#preview").html($("<img>", { id: "image", src: id }));
   }
+  //  width: "280", height: "157"
   //********************************************************************** */
 }
 

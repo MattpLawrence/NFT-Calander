@@ -102,7 +102,8 @@ $(document).ready(function () {
   $(subMenuEL).on("click", function (e) {
     var textValue = e.target.innerText;
     searchBar.value = textValue;
-    searchVid(textValue);
+    // searchVid(textValue);
+    console.log("searched click");
   });
 
   //********************************************** */
@@ -168,15 +169,17 @@ $(document).ready(function () {
 
   // Click on search bar button landing page
   $("#landingPageSearch").on("click", function () {
-    //check for null value and cancel if null
-    // if (searchBar.value) {
-    //   console.log("clicked");
-    //   var searchVal = searchBar.value;
-    //   searchVid(searchVal);
-    //   saveSearchHistory(searchVal);
-    // } else {
-    //   return;
-    // }
+    // check for null value and cancel if null
+    if (searchBar.value) {
+      console.log("landing page click");
+      // comment back in to go to next page
+      // document.location.replace("./nowPlaying.html");
+      var searchVal = searchBar.value;
+      searchVid(searchVal);
+      saveSearchHistory(searchVal);
+    } else {
+      return;
+    }
   });
 });
 

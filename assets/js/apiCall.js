@@ -73,9 +73,10 @@ $(document).ready(function () {
     pastSearches = JSON.parse(localStorage["pastSearches"]); //retrieve from local storage
 
     if (pastSearches.length) {
+      $("#subMenu").css("display", "block");
       console.log(pastSearches);
       $.each(pastSearches, function (i, val) {
-        var subMenuLI = $(`<button>`).text(val).attr("class", "historyBtn");
+        var subMenuLI = $(`<li>`).text(val).attr("class", "historyBtn");
         subMenuEL.append(subMenuLI);
       });
     }

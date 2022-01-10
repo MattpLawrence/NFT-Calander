@@ -1,4 +1,4 @@
-const plugin = require('tailwindcss/plugin')
+const randomBtm = require('tailwindcss/plugin')
 
 module.exports = {
   plugins: [

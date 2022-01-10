@@ -7,6 +7,7 @@
         <title>NM | Discover New Music</title>
         <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
         <script src="https://cdn.tailwindcss.com"></script>
+        <link rel=“stylesheet” href=“https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css” integrity=“sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw==” crossorigin=“anonymous” referrerpolicy=“no-referrer” />
         <script src="https://kit.fontawesome.com/143986e3b2.js" crossorigin="anonymous"></script>
         <!-- disable ugly x on search bar that some webkit dev thought was a good idea -->
         <style>
@@ -14,6 +15,7 @@
             input[type="search"]::-webkit-search-cancel-button,
             input[type="search"]::-webkit-search-results-button,
             input[type="search"]::-webkit-search-results-decoration { display: none; }
+            ::-webkit-scrollbar {display: none;}
         </style>
         <link rel="stylesheet" href="./assets/css/style.css">
     </head>
@@ -49,7 +51,7 @@
 
                     <!-- search history modal -->
                     <div class="hidden overflow-y-auto overflow-x-hidden fixed right-0 left-0 top-4 z-50 justify-center items-center md:inset-0 h-modal sm:h-full" id="history-modal">
-                        <div class="relative px-4 w-full max-w-lg h-full md:h-auto">
+                        <div class="relative px-4 w-full max-w-lg max-h-[80%] md:h-auto overflow-y-auto">
                             <!-- Modal content -->
                             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                                 <!-- Modal header -->
@@ -102,6 +104,10 @@
                         Play whatever
                     </button>
                 </div>
+                <!-- spinner for random -->
+                <div class="spinner-border" role="status" id="spinner">
+                    <span class="sr-only">Loading...</span>
+                  </div>
                 <div class="mt-16">
                     <!-- or search text -->
                     <p class="text-lg text-center text-[#AAAAAA]">Or search for your favorite songs</p>

@@ -5,7 +5,7 @@ var subMenuEL = $("#subMenu");
 var randomListEL = $("#randomList");
 var store = window.localStorage;
 // APi key for all googleAPi searches on this project
-var key = "AIzaSyDUrLX96RvbED8aJr3EVMPXKameFrZHhLc";
+var key = "AIzaSyBwMqbMarkc2HTA4cfma3Qbj6cD8yxzItU";
 var maxNumber = 10;
 
 $(document).ready(function () {
@@ -22,7 +22,6 @@ $(document).ready(function () {
   function loadVids() {
     $.getJSON(urlPlay, optionsPlay, function (data) {
       var id = data.items[0].snippet.thumbnails.high.url;
-      console.log(data);
       mainImg(id);
       resultsLoop(data);
     });
@@ -75,7 +74,7 @@ $(document).ready(function () {
     if (pastSearches.length) {
       console.log(pastSearches);
       $.each(pastSearches, function (i, val) {
-        var subMenuLI = $(`<li>`).text(val).attr("class", "historyLI");
+        var subMenuLI = $(`<button>`).text(val).attr("class", "historyBtn");
         subMenuEL.append(subMenuLI);
       });
     }
@@ -157,7 +156,6 @@ $(document).ready(function () {
   $(searchBtnEl).on("click", function () {
     //check for null value and cancel if null
     if (searchBar.value) {
-      console.log("clicked");
       var searchVal = searchBar.value;
       searchVid(searchVal);
       saveSearchHistory(searchVal);
@@ -167,7 +165,7 @@ $(document).ready(function () {
   });
 });
 
-// ******************************************past random history********************
+// ******************************************past play history********************
 
 var pastRandom = [];
 // pull in and save random search data to local storage
@@ -191,7 +189,6 @@ function savePlayHistory(randomUrl, randomTitle, randomImage) {
 // generate sidebar values to show last 10 random searches
 function drawPastRandom() {
   pastRandom = JSON.parse(localStorage["pastRandom"]); //retrieve from local storage
-  $("#randomHistory").css("display", "initial");
   if (pastRandom.length) {
     console.log(pastRandom);
     $.each(pastRandom, function (i, val) {
@@ -205,7 +202,11 @@ historyOnLoad();
 function historyOnLoad(e) {
   try {
     drawPastRandom();
-    console.log("display?");
+    // if ($(subMenuEL).children().length === 0) {
+    //   console.log("yes");
+    //   // var search = $(this).text();
+    //   // drawPastSearches(search);
+    // }
   } catch {
     $("#randomHistory").css("display", "none");
     console.log("catch");

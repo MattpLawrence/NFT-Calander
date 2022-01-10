@@ -25,7 +25,8 @@ body {
   margin-right: 20vw;
 }
 
-header,
+/* get rid of this style for new layout */
+/* header, 
 section {
   position: fixed;
   text-align: center;
@@ -38,6 +39,15 @@ section,
 img {
   margin-left: 0;
   padding-left: 0;
+} */
+
+#randomHistory {
+  position: fixed;
+  width: 280px;
+  margin-top: 200px;
+  text-align: center;
+  font-size: 2rem;
+  color: back;
 }
 
 #randomHistory {

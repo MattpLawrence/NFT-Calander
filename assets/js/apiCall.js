@@ -189,7 +189,6 @@ function savePlayHistory(randomUrl, randomTitle, randomImage) {
 // generate sidebar values to show last 10 random searches
 function drawPastRandom() {
   pastRandom = JSON.parse(localStorage["pastRandom"]); //retrieve from local storage
-
   if (pastRandom.length) {
     console.log(pastRandom);
     $.each(pastRandom, function (i, val) {

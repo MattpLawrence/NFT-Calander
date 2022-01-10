@@ -5,11 +5,11 @@ var subMenuEL = $("#subMenu");
 var randomListEL = $("#randomList");
 var store = window.localStorage;
 // APi key for all googleAPi searches on this project
-var key = "AIzaSyBwMqbMarkc2HTA4cfma3Qbj6cD8yxzItU";
+var key = "AIzaSyC_YpJ9V9iJS5Zp6VZBaecENgQDc9XOYcc";
 var maxNumber = 10;
 
 $(document).ready(function () {
-  var playlistId = "PLMKA5kzkfqk2GEImRCIqGqWmQvKYygUhG";
+  var playlistId = "PLFgquLnL59alW3xmYiWRaoz0oM3H17Lth";
   var urlPlay = "https://www.googleapis.com/youtube/v3/playlistItems";
   var optionsPlay = {
     part: "snippet",
@@ -22,6 +22,7 @@ $(document).ready(function () {
   function loadVids() {
     $.getJSON(urlPlay, optionsPlay, function (data) {
       var id = data.items[0].snippet.thumbnails.high.url;
+      console.log(data);
       mainImg(id);
       resultsLoop(data);
     });
@@ -72,9 +73,12 @@ $(document).ready(function () {
     pastSearches = JSON.parse(localStorage["pastSearches"]); //retrieve from local storage
 
     if (pastSearches.length) {
+      $("#subMenu").css("display", "block");
       console.log(pastSearches);
       $.each(pastSearches, function (i, val) {
-        var subMenuLI = $(`<button>`).text(val).attr("class", "historyBtn");
+        var subMenuLI = $(`<li>`)
+          .text(val)
+          .attr({ class: "historyBtn search" });
         subMenuEL.append(subMenuLI);
       });
     }
@@ -96,6 +100,7 @@ $(document).ready(function () {
 
   $(document).on("click", function () {
     subMenuEL.empty();
+    $("#subMenu").css("display", "none");
   });
 
   $(subMenuEL).on("click", function (e) {
@@ -165,7 +170,7 @@ $(document).ready(function () {
   });
 });
 
-// ******************************************past play history********************
+// ******************************************past random history********************
 
 var pastRandom = [];
 // pull in and save random search data to local storage
@@ -189,6 +194,10 @@ function savePlayHistory(randomUrl, randomTitle, randomImage) {
 // generate sidebar values to show last 10 random searches
 function drawPastRandom() {
   pastRandom = JSON.parse(localStorage["pastRandom"]); //retrieve from local storage
+
+  $("#randomHistory").css("display", "initial");
+
+
   if (pastRandom.length) {
     console.log(pastRandom);
     $.each(pastRandom, function (i, val) {
@@ -202,11 +211,7 @@ historyOnLoad();
 function historyOnLoad(e) {
   try {
     drawPastRandom();
-    // if ($(subMenuEL).children().length === 0) {
-    //   console.log("yes");
-    //   // var search = $(this).text();
-    //   // drawPastSearches(search);
-    // }
+    console.log("display?");
   } catch {
     $("#randomHistory").css("display", "none");
     console.log("catch");

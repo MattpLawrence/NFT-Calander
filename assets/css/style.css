@@ -3,6 +3,7 @@ h4 {
   margin: 0;
   line-height: 1.3;
   font-weight: 600;
+  font-family: "Ubuntu", sans-serif;
 }
 
 p {
@@ -18,12 +19,34 @@ body {
   background-color: #eee;
 }
 
+#subMenu {
+  display: none;
+  position: fixed;
+  width: 291px;
+  /* margin-left: 20px; */
+  background-color: white;
+  border-radius: 5px;
+  font-family: sans-serif;
+  z-index: 1; /* move ot front*/
+  margin-top: -20px;
+  border: 3px black solid;
+}
+#main {
+  padding-top: 110px;
+  width: 90vw;
+}
+
 .container {
-  width: 80vw;
   background-color: #fff;
   margin-left: 280px;
-  margin-right: 20vw;
+  /* padding: 0; */
 }
+
+
+#body {
+  position: fixed;
+  padding-top: 200px;
+  top: 100;
 
 /* get rid of this style for new layout */
 /* header, 
@@ -48,8 +71,12 @@ img {
   text-align: center;
   font-size: 2rem;
   color: back;
+
 }
 
+#image {
+  margin-top: 50px;
+}
 #randomHistory {
   position: fixed;
   width: 280px;
@@ -69,22 +96,62 @@ img {
   position: fixed;
   width: 280px;
 }
-
+#searchBar {
+  width: 20rem;
+  border: 2px rgb(131, 131, 141) solid;
+}
+.input-group {
+  position: fixed;
+  margin-top: -20px;
+  padding-top: 80px;
+  background-color: white;
+  height: 130px;
+  width: 90vw;
+}
 #searchBtn {
-  height: 2.5rem;
+  border-radius: 5px;
+  width: 10rem;
+  height: 2.3rem;
+  background-color: white;
+  color: black;
+  border: 3px rgb(53, 53, 95) solid;
+  transition: 0.5s;
+  line-height: 1rem;
+}
+#searchBtn:hover {
+  transform: scale(1.1);
 }
 
 .historyBtn {
   display: block;
   color: black;
-  margin: 2px auto;
+  margin-left: -18px;
   width: 100%;
+  transition: 0.5s;
+  border: 3px rgb(53, 53, 95) solid;
+  border-radius: 5px;
 }
 
 .historyBtn:hover {
-  background-color: rgb(155, 166, 226);
+  transform: scale(1.1);
 }
 
+.search {
+  border: none;
+}
+/* **********************random**************** */
+#randomBtn {
+  border-radius: 5px;
+  margin-left: -200px;
+  width: 10rem;
+  height: 2.3rem;
+  background-color: white;
+  border: 3px rgb(53, 53, 95) solid;
+  transition: 0.5s;
+}
+#randomBtn:hover {
+  transform: scale(1.1);
+}
 #randomDiv {
   display: inline;
   margin: 0 auto;
@@ -92,10 +159,6 @@ img {
 
 #spinner {
   display: none;
-}
-
-main {
-  padding: 18px 18px 10px;
 }
 
 article {
@@ -117,4 +180,8 @@ article:hover {
 
 .details {
   padding: 8px 22px;
+}
+.item {
+  background-color: white;
+  margin-right: 10px;
 }

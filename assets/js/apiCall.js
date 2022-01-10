@@ -75,7 +75,7 @@ $(document).ready(function () {
     if (pastSearches.length) {
       console.log(pastSearches);
       $.each(pastSearches, function (i, val) {
-        var subMenuLI = $(`<li>`).text(val).attr("class", "historyLI");
+        var subMenuLI = $(`<button>`).text(val).attr("class", "historyBtn");
         subMenuEL.append(subMenuLI);
       });
     }
@@ -157,7 +157,6 @@ $(document).ready(function () {
   $(searchBtnEl).on("click", function () {
     //check for null value and cancel if null
     if (searchBar.value) {
-      console.log("clicked");
       var searchVal = searchBar.value;
       searchVid(searchVal);
       saveSearchHistory(searchVal);
@@ -198,6 +197,13 @@ function drawPastRandom() {
       var randomListLI = $(`<button>`).text(val).attr("class", "historyBtn");
       randomListEL.append(randomListLI);
     });
+  }
+
+  var text = "";
+  for(let i = 0; i < pastRandom.length; i++) {
+    let listItem = String(pastRandom[i]);
+    text += '<p class="text-base leading-relaxed text-white">' + listItem + '</p>';console.log(text);
+    document.getElementById("recentlyViewed").innerHTML=(text);
   }
 }
 historyOnLoad();

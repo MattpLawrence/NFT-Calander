@@ -5,11 +5,11 @@ var subMenuEL = $("#subMenu");
 var randomListEL = $("#randomList");
 var store = window.localStorage;
 // APi key for all googleAPi searches on this project
-var key = "AIzaSyC_YpJ9V9iJS5Zp6VZBaecENgQDc9XOYcc";
+var key = "AIzaSyDhujHs0vgco3HV7Q-KaH8yomlURhoF0QA";
 var maxNumber = 10;
 
 $(document).ready(function () {
-  var playlistId = "PLFgquLnL59alW3xmYiWRaoz0oM3H17Lth";
+  var playlistId = "PLeCdlPO-XhWFzEVynMsmosfdRsIZXhZi0";
   var urlPlay = "https://www.googleapis.com/youtube/v3/playlistItems";
   var optionsPlay = {
     part: "snippet",
@@ -194,10 +194,7 @@ function savePlayHistory(randomUrl, randomTitle, randomImage) {
 // generate sidebar values to show last 10 random searches
 function drawPastRandom() {
   pastRandom = JSON.parse(localStorage["pastRandom"]); //retrieve from local storage
-
   $("#randomHistory").css("display", "initial");
-
-
   if (pastRandom.length) {
     console.log(pastRandom);
     $.each(pastRandom, function (i, val) {

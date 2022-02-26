@@ -16,9 +16,14 @@
             input[type="search"]::-webkit-search-results-decoration { display: none; }
             ::-webkit-scrollbar {display: none;}
         </style>
+            <script src="https://unpkg.com/@themesberg/flowbite@1.3.0/dist/flowbite.bundle.js"></script>
+            <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+            <script src="./assets/js/apiCall.js"></script>
+            <script src="./assets/js/randomAPI.js"></script>
+            <script src="./assets/js/searchAPI.js"></script>
     </head>
 
-    <body class="bg-[#101010] h-screen">
+    <body onload="randomVid()" class="bg-[#101010] h-screen">
         <!-- Header Bar -->
         <header>
             <!-- nav bar flex -->
@@ -54,7 +59,7 @@
                             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                                 <!-- Modal header -->
                                 <div class="flex justify-between items-center p-5 rounded-t border-b dark:border-gray-600">
-                                <source media="(min-width: )" srcset=""> class="text-xl font-medium text-gray-900 dark:text-white">
+                                    <h3 class="text-xl font-medium text-gray-900 dark:text-white">
                                         Recently played
                                     </h3>
                                     <button type="button" class="text-gray-400 mr-2 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="history-modal">
@@ -62,13 +67,7 @@
                                     </button>
                                 </div>
                                 <!-- Modal body -->
-                                <div class="p-6 space-y-6">
-                                    <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                                        Filler text about how I haven't had a chicken nugget in over 8 years. I don't know, they just don't taste all that good to me. Like, their flavor is essentially just the flavor of the breading. That, and the fact that I once found a feather in my chicken nugget really make it seem pretty unappetizing. 
-                                    </p>
-                                    <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                                        I am filling this area with text as well so that I can just fill this area until workable code is entered. So, I guess I'll try to come up with a random long paragraph so I can check the scroll function of the modal in this web app. For some reason all I can think about right now that could use some explanation is PCR testing. It's become so mainstream to talk about PCR testing because of COVID, but I remember using it to genotype lab specimens in college. PCR stands for Polymerase Chain Reaction and it is a method of increasing the sample DNA for testing. There are two reagents involved in PCR testing: the polymerase solution and the primers. While I'm not 100% sure how they work, I do know that it required hours of pipetting a week. And I can still remember the smell of a fresh slab of agarose gel straight from the lab microwave. Which was surprisingly not horrible. I still have nightmares about those days, literally months of my time spent slightly underground in a world of sterile off-white lab equipment, with the smell of disinfectant and bleach permeating the air. I suppose it was a cool experience working in a lab, but I wouldn't say that it was a fun one. 
-                                    </p>
+                                <div class="p-6 space-y-6" id="recentlyViewed">
                                 </div>                                
                             </div>
                         </div>
@@ -78,8 +77,8 @@
                     <div class="relative ml-auto mr-6 text-[#AAAAAA] lg:block hidden">
                         <input
                             class="bg-[#333333] h-10 pl-5 pr-28 rounded-full text-sm focus:outline-none"
-                            type="search" name="search" placeholder="Search songs">
-                        <button type="submit" class="absolute right-0 top-0 mt-2 mr-4 text-md text-[#90959F]">
+                            type="search" name="search" placeholder="Search coming soon!" disabled>
+                        <button type="submit" class="absolute right-0 top-0 mt-2 mr-4 text-md text-[#90959F]" id="searchBtn">
                             <i class="fas fa-search"></i>
                         </button>
                     </div>
@@ -90,8 +89,8 @@
         <!-- video player div -->
         <div class="flex justify-center mt-8"> 
             <!-- video player -->
-            <div class="relative m-0 w-3/5 h-1/3 pt-1/3" style="padding-top: 35.25%">
-                <iframe class="absolute inset-0 w-full aspect-video" src="https://www.youtube.com/embed/uV2yMgh85qU" frameborder="0" …></iframe>
+            <class class="relative m-0 w-3/5 h-1/3 pt-1/3" style="padding-top: 35.25%">
+                <img class="absolute inset-0 w-full aspect-video bg-cover" id="VidImg" frameborder="0"></img>
             </div>
         </div>
         <!-- video information + skip button div -->
@@ -99,12 +98,12 @@
             <div class="w-3/5 flex flex-nowrap justify-between">
                 <!-- video information -->
                 <div class="text-[#FFFFFF] mt-1 w-4/5">
-                    <p class="truncate text-2xl">keshi - SOMEBODY</p>
-                    <p class="truncate text-md">keshi</p>
+                    <p class="truncate text-2xl" id="VidTitle"></p>
+                    <!-- <p class="truncate text-md">keshi</p> -->
                 </div>
                 <!-- skip button -->
                 <div class="w-auto">
-                    <button type="button" class="whitespace-nowrap bg-[#2E2E2E] hover:bg-[#252424] text-[#FFFFFF] text-md px-6 py-2 rounded-full">
+                    <button type="button" class="bg-[#2E2E2E] whitespace-nowrap hover:bg-[#252424] text-[#FFFFFF] text-md px-6 py-2 rounded-full" onclick="window.location.href='nowPlaying.html';">
                         <span class="font-semibold">Skip</span> <i class="fas fa-fast-forward pl-1"></i>
                     </button>
                 </div>
@@ -125,11 +124,11 @@
                 <!-- click me text -->
                 <p class="text-sm text-center text-[#AAAAAA]">Bored of this?</p>
                 <!-- random button -->
-                <button type="submit" class="bg-[#101010] w-[160px] mt-2 mb-4 hover:bg-[#B12519] text-[#EDEDED] text-md px-6 py-2 rounded-full border border-[#B12519]">
+                <button type="submit" onclick="window.location.href='nowPlaying.html';" class="bg-[#101010] w-[160px] mt-2 mb-4 hover:bg-[#B12519] text-[#EDEDED] text-md px-6 py-2 rounded-full border border-[#B12519]">
                     Play whatever
                 </button>
             </div>
         </div>
-    <script src="https://unpkg.com/@themesberg/flowbite@1.3.0/dist/flowbite.bundle.js"></script>
+        <script src="./assets/js/randomAPI.js"></script>
     </body>
 </html>

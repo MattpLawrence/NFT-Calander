@@ -25,18 +25,32 @@ function randomVid() {
       searchVid(searchVal);
       var randomUrl = data.youtube.url;
       console.log(randomUrl);
+      var randomChannel = data.youtube.channel;
+      console.log(randomChannel);
       var randomTitle = data.youtube.title;
       console.log(randomTitle);
       var randomImage = data.youtube.image;
       console.log(randomImage);
       savePlayHistory(randomUrl, randomTitle, randomImage);
+      document.getElementById("VidTitle").innerHTML = (String(randomTitle));
+
+      document.getElementById("VidImg").src = String(randomImage);
+
     })
-    .catch((err) => {
+       .catch((err) => {
       console.error(err);
       console.log("oops");
     });
-}
+    
+
+     }
+
+
 
 $(randomBtnEl).on("click", function () {
+  randomVid();
+});
+
+$(randomBtnEl).on("load", function () {
   randomVid();
 });
